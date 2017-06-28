@@ -1,7 +1,22 @@
 Author: Piotr Sekuła
 Project of Tic Tac Toe game.
 
-You na run via Main.java class in package pl.javaacademy.tictactoe
+To run:
+1. mvn clean install
+2. java -jar PROJECT_DIRECTORY/target/TicTacToe-1.0.jar
+
+TODO List:
+1. IO - select starting mark
+2. IO - set board size
+3. Display empty board
+4. Select field
+5. Update board
+6. Display updated board
+7. Check game for win
+8. Check for match winner (best of 3 games)
+9. Calculating points (3 - for game winner, 1 - when its draw)
+10. Customize win condition
+
 
 Gitignore:
 # Created by https://www.gitignore.io/api/java,linux,intellij

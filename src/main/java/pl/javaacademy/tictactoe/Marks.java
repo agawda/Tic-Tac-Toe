@@ -1,5 +1,5 @@
 package pl.javaacademy.tictactoe;
 
-public enum Marks {
+enum Marks {
     X,O;
 }

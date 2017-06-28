@@ -17,20 +17,32 @@ public class Main {
                 System.out.println("You put wrong mark, try again");
             }
         }
-
         System.out.println("You selected: " + startingMark);
 
-        Integer boardSize = null;
-        System.out.println("Please type size of board");
-        while (boardSize == null) {
+        Integer boardWidht = null;
+        Integer boardHeight = null;
+        System.out.println("Please type width of board");
+        while ((boardWidht == null)) {
             try {
                 String userSize = String.valueOf(scanner.nextLine());
-                boardSize = Integer.valueOf(userSize);
+                boardWidht = Integer.valueOf(userSize);
+
             } catch (NumberFormatException e) {
                 System.out.println("You put wrong value, please try again");
             }
         }
 
+        System.out.println("Please type height of board");
+        while ((boardHeight == null)) {
+            try {
+                String userSize = String.valueOf(scanner.nextLine());
+                boardHeight = Integer.valueOf(userSize);
+
+            } catch (NumberFormatException e) {
+                System.out.println("You put wrong value, please try again");
+            }
+        }
+        BoardSize boardSize = new BoardSize(boardWidht, boardHeight);
         System.out.println("Selected board size: " + boardSize);
     }
 }

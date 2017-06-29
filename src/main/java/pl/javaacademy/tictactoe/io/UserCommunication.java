@@ -6,6 +6,7 @@ public abstract class UserCommunication<T> {
 
     private Scanner scanner = new Scanner(System.in);
 
+    // TODO: add some restrictions (eg. filed 1-9, board size < 100)
     public T read() {
 
         T value = null;

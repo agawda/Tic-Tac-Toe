@@ -10,12 +10,15 @@ TODO List:
 2. IO - set board size
 3. Display empty board
 4. Select field
-5. Update board
-6. Display updated board
-7. Check game for win
-8. Check for match winner (best of 3 games)
-9. Calculating points (3 - for game winner, 1 - when its draw)
-10. Customize win condition
+5. Check if selected field is available
+6. Update board
+7. Display updated board
+8. Add restrictions to user input
+9. Allow users to make moves alternately
+10. Check game for win
+11. Check for match winner (best of 3 games)
+12. Calculating points (3 - for game winner, 1 - when its draw)
+13. Customize win condition
 
 
 Gitignore:

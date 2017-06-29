@@ -24,11 +24,19 @@ public class Main {
         BoardSize boardSize = new BoardSize(boardWidth, boardHeight);
         System.out.println("Selected board size: " + boardSize);
 
+        //TODO replace responsibilites from main to GameEngine
         Board board = new Board();
         board.displayBoard();
 
         System.out.println("Please select field(1-9)");
         Integer selectedField = integerReader.read();
+        while (board.isFieldOccupied(selectedField)){
+            System.out.println("Field is occupied, please select another one");
+            selectedField = integerReader.read();
+        }
         System.out.println("You selected: " + selectedField);
+
+        board.updateBoard(selectedField, startingMark);
+        board.displayBoard();
     }
 }

@@ -11,15 +11,23 @@ class Board {
 
     Map<Integer, Marks> fields;
 
-    public Board() {
+    Board() {
         fields = new HashMap<>();
         fieldIds.forEach(integer -> fields.put(integer, null));
     }
 
-    public void displayBoard() {
+    void displayBoard() {
         System.out.println(selectMark(1) + selectMark(2) + selectMark(3));
         System.out.println(selectMark(4) + selectMark(5) + selectMark(6));
         System.out.println(selectMark(7) + selectMark(8) + selectMark(9));
+    }
+
+    void updateBoard(Integer selectedField, Marks playerMark) {
+            fields.put(selectedField, playerMark);
+    }
+
+    boolean isFieldOccupied(Integer selectedField) {
+        return fields.get(selectedField) != null;
     }
 
     private String selectMark(int id) {

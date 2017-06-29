@@ -1,5 +1,7 @@
 package pl.javaacademy.tictactoe;
 
+import pl.javaacademy.tictactoe.common.Marks;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.IntStream;
@@ -10,10 +12,13 @@ class Board {
     private Stream<Integer> fieldIds = IntStream.range(1, 10).boxed(); //generate numbers 1-9
 
     Map<Integer, Marks> fields;
+    BoardSize size;
 
-    Board() {
+    Board(BoardSize boardSize) {
         fields = new HashMap<>();
         fieldIds.forEach(integer -> fields.put(integer, null));
+
+        this.size = boardSize;
     }
 
     void displayBoard() {
@@ -26,8 +31,12 @@ class Board {
             fields.put(selectedField, playerMark);
     }
 
-    boolean isFieldOccupied(Integer selectedField) {
-        return fields.get(selectedField) != null;
+    boolean isFieldSuitable(Integer selectedField) {
+        return (isFieldFree(selectedField) && size.isFieldOnBoard(selectedField));
+    }
+
+    private boolean isFieldFree(Integer selectedField) {
+        return fields.get(selectedField) == null;
     }
 
     private String selectMark(int id) {

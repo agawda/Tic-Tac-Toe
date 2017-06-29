@@ -5,9 +5,14 @@ class BoardSize {
     private Integer width;
     private Integer height;
 
-    public BoardSize(Integer width, Integer height) {
+    BoardSize(Integer width, Integer height) {
         this.width = width;
         this.height = height;
+    }
+
+    // TODO: make sure field is > 0
+    boolean isFieldOnBoard(Integer selectedField) {
+        return selectedField <= width*height;
     }
 
     @Override

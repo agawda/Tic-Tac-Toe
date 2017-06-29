@@ -19,16 +19,16 @@ public class Main {
         }
         System.out.println("You selected: " + startingMark);
 
-        Integer boardWidht = null;
+        Integer boardWidth = null;
         Integer boardHeight = null;
         System.out.println("Please type width of board");
-        while ((boardWidht == null)) {
+        while ((boardWidth == null)) {
             try {
                 String userSize = String.valueOf(scanner.nextLine());
-                boardWidht = Integer.valueOf(userSize);
+                boardWidth = Integer.valueOf(userSize);
 
             } catch (NumberFormatException e) {
-                System.out.println("You put wrong value, please try again");
+                System.err.println("You put wrong value, please try again");
             }
         }
 
@@ -39,10 +39,13 @@ public class Main {
                 boardHeight = Integer.valueOf(userSize);
 
             } catch (NumberFormatException e) {
-                System.out.println("You put wrong value, please try again");
+                System.err.println("You put wrong value, please try again");
             }
         }
-        BoardSize boardSize = new BoardSize(boardWidht, boardHeight);
+        BoardSize boardSize = new BoardSize(boardWidth, boardHeight);
         System.out.println("Selected board size: " + boardSize);
+
+        Board board = new Board();
+        board.displayBoard();
     }
 }

@@ -12,7 +12,7 @@ class BoardSize {
 
     // TODO: make sure field is > 0
     boolean isFieldOnBoard(Integer selectedField) {
-        return selectedField <= width*height;
+        return selectedField <= width * height;
     }
 
     @Override

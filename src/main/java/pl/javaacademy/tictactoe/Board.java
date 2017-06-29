@@ -28,11 +28,22 @@ class Board {
     }
 
     void updateBoard(Integer selectedField, Marks playerMark) {
-            fields.put(selectedField, playerMark);
+        fields.put(selectedField, playerMark);
     }
 
     boolean isFieldSuitable(Integer selectedField) {
         return (isFieldFree(selectedField) && size.isFieldOnBoard(selectedField));
+    }
+
+    boolean boardIsFilled() {
+
+        int emptyFieldsCounter = 0;
+        for (int i = 0; i < size.getNumberOfFields(); i++) {
+            if (fields.get(i) == null) {
+                emptyFieldsCounter++;
+            }
+        }
+        return emptyFieldsCounter == 0;
     }
 
     private boolean isFieldFree(Integer selectedField) {

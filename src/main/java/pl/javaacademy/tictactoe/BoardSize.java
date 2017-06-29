@@ -15,6 +15,8 @@ class BoardSize {
         return selectedField <= width * height;
     }
 
+    int getNumberOfFields() {return width * height;}
+
     @Override
     public String toString() {
         return "BoardSize{" +

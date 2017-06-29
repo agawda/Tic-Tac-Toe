@@ -4,7 +4,6 @@ import pl.javaacademy.tictactoe.common.Marks;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 
 class PlayerSelector {
 
@@ -21,7 +20,7 @@ class PlayerSelector {
     }
 
     // TODO: don't work with more than 2 marks
-    private Marks getSecondPlayerMark(){
+    private Marks getSecondPlayerMark() {
 
         ArrayList<Marks> allMarks = new ArrayList<>(Arrays.asList(Marks.values()));
         allMarks.remove(startingPlayerMark);

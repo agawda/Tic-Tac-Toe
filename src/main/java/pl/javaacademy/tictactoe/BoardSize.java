@@ -5,6 +5,11 @@ import java.util.List;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+/*
+ * Important class for me, because it knows size of board and thanks to this it can
+ * calculate indexes to check for winner
+ *
+ */
 class BoardSize {
 
     private Integer width;

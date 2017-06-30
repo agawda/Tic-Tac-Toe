@@ -1,10 +1,10 @@
 package pl.javaacademy.tictactoe;
 
-import pl.javaacademy.tictactoe.common.GameState;
-import pl.javaacademy.tictactoe.common.Marks;
-
 import java.util.List;
 
+/*
+ * Do more generalizations
+ */
 class WinnerChecker {
 
     GameState findWinner(Board board) {

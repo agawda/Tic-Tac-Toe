@@ -1,14 +1,14 @@
 package pl.javaacademy.tictactoe;
 
-import pl.javaacademy.tictactoe.common.Marks;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
-
+/*
+ * Class storing board data. It has hardcoded 3x3 board
+ */
 class Board {
 
     private Stream<Integer> fieldIds = IntStream.range(1, 10).boxed(); //generate numbers 1-9

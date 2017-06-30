@@ -1,10 +1,5 @@
 package pl.javaacademy.tictactoe;
 
-import pl.javaacademy.tictactoe.common.Marks;
-import pl.javaacademy.tictactoe.io.IntegerInput;
-import pl.javaacademy.tictactoe.io.MarksInput;
-import pl.javaacademy.tictactoe.io.UserCommunication;
-
 public class Main {
 
     public static void main(String[] args) {

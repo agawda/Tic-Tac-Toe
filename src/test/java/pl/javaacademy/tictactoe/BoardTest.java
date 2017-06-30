@@ -2,7 +2,6 @@ package pl.javaacademy.tictactoe;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import pl.javaacademy.tictactoe.common.Marks;
 
 import java.util.List;
 import java.util.stream.IntStream;
@@ -78,10 +77,10 @@ public class BoardTest {
     }
 
     @Test
-    public void shouldReturnMarksFromFirstRow(){
+    public void shouldReturnMarksFromFirstRow() {
 
         // Given
-        board = new Board(new BoardSize(3,3));
+        board = new Board(new BoardSize(3, 3));
         board.updateBoard(1, Marks.X);
         board.updateBoard(2, Marks.X);
         board.updateBoard(3, Marks.O);
@@ -96,10 +95,10 @@ public class BoardTest {
     }
 
     @Test
-    public void shouldReturnMarksFromRow(){
+    public void shouldReturnMarksFromRow() {
 
         // Given
-        board = new Board(new BoardSize(4,5));
+        board = new Board(new BoardSize(4, 5));
         board.updateBoard(9, Marks.X);
         board.updateBoard(10, Marks.X);
         board.updateBoard(11, Marks.O);
@@ -116,10 +115,10 @@ public class BoardTest {
     }
 
     @Test
-    public void shouldReturnMarksFromFirstColumn(){
+    public void shouldReturnMarksFromFirstColumn() {
 
         // Given
-        board = new Board(new BoardSize(3,3));
+        board = new Board(new BoardSize(3, 3));
         board.updateBoard(1, Marks.X);
         board.updateBoard(4, Marks.O);
         board.updateBoard(7, Marks.X);
@@ -134,10 +133,10 @@ public class BoardTest {
     }
 
     @Test
-    public void shouldReturnMarksFromColumn(){
+    public void shouldReturnMarksFromColumn() {
 
         // Given
-        board = new Board(new BoardSize(4,5));
+        board = new Board(new BoardSize(4, 5));
         board.updateBoard(3, Marks.O);
         board.updateBoard(7, Marks.X);
         board.updateBoard(11, Marks.O);

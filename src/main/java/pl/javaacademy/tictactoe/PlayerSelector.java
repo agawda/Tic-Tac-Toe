@@ -1,10 +1,10 @@
 package pl.javaacademy.tictactoe;
 
-import pl.javaacademy.tictactoe.common.Marks;
-
 import java.util.ArrayList;
 import java.util.Arrays;
-
+/*
+ * As it was said on public review move methods to enum classes
+ */
 class PlayerSelector {
 
     private Marks startingPlayerMark;

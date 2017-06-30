@@ -2,7 +2,6 @@ package pl.javaacademy.tictactoe;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import pl.javaacademy.tictactoe.common.Marks;
 
 import static org.testng.Assert.assertEquals;
 

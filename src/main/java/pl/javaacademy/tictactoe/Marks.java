@@ -1,5 +1,5 @@
 package pl.javaacademy.tictactoe;
 
-public class GameEngineTest {
-
+enum Marks {
+    X,O,EMPTY
 }

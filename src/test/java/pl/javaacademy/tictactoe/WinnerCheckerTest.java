@@ -3,8 +3,6 @@ package pl.javaacademy.tictactoe;
 import org.testng.annotations.BeforeGroups;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pl.javaacademy.tictactoe.common.GameState;
-import pl.javaacademy.tictactoe.common.Marks;
 
 import static org.testng.Assert.assertEquals;
 
@@ -16,7 +14,6 @@ public class WinnerCheckerTest {
     @BeforeMethod()
     public void before() {
         checker = new WinnerChecker();
-        board = new Board(new BoardSize(3, 3));
     }
 
     @BeforeGroups(groups = "4x6 board")
@@ -24,11 +21,12 @@ public class WinnerCheckerTest {
         board = new Board(new BoardSize(4, 6));
     }
 
-    // region 3x3 group tests
+    // region 3x3 board tests
     @Test(groups = "3x3 board")
     public void shouldFindNoWinnerForEmptyBoard() {
 
         // Given
+        board = new Board(new BoardSize(3, 3));
 
         // When
         GameState state = checker.findWinner(board);
@@ -41,6 +39,7 @@ public class WinnerCheckerTest {
     public void shouldFindWinnerInFirstRow() {
 
         // Given
+        board = new Board(new BoardSize(3, 3));
         board.updateBoard(1, Marks.X);
         board.updateBoard(2, Marks.X);
         board.updateBoard(3, Marks.X);
@@ -56,6 +55,7 @@ public class WinnerCheckerTest {
     public void shouldFindWinnerInFirstColumn() {
 
         // Given
+        board = new Board(new BoardSize(3, 3));
         board.updateBoard(1, Marks.X);
         board.updateBoard(4, Marks.X);
         board.updateBoard(7, Marks.X);
@@ -71,6 +71,7 @@ public class WinnerCheckerTest {
     public void shouldFindWinnerInSecondRow() {
 
         // Given
+        board = new Board(new BoardSize(3, 3));
         board.updateBoard(1, Marks.X);
         board.updateBoard(2, Marks.O);
         board.updateBoard(3, Marks.O);
@@ -89,6 +90,7 @@ public class WinnerCheckerTest {
     public void shouldFindWinnerInSecondColumn() {
 
         // Given
+        board = new Board(new BoardSize(3, 3));
         board.updateBoard(1, Marks.X);
         board.updateBoard(4, Marks.O);
         board.updateBoard(7, Marks.O);
@@ -107,6 +109,7 @@ public class WinnerCheckerTest {
     public void shouldFindWinnerWithEmptyFieldsOnBoard() {
 
         // Given
+        board = new Board(new BoardSize(3, 3));
         board.updateBoard(7, Marks.O);
         board.updateBoard(8, Marks.O);
         board.updateBoard(9, Marks.O);
@@ -122,6 +125,7 @@ public class WinnerCheckerTest {
     public void shouldFindColumnWinnerWithEmptyFieldsOnBoard() {
 
         // Given
+        board = new Board(new BoardSize(3, 3));
         board.updateBoard(3, Marks.O);
         board.updateBoard(6, Marks.O);
         board.updateBoard(9, Marks.O);
@@ -137,6 +141,7 @@ public class WinnerCheckerTest {
     public void shouldFindNoWinnerInFilledBoard() {
 
         // Given
+        board = new Board(new BoardSize(3, 3));
         board.updateBoard(1, Marks.O);
         board.updateBoard(2, Marks.X);
         board.updateBoard(3, Marks.X);

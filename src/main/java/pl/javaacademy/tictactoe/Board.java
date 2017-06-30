@@ -2,7 +2,9 @@ package pl.javaacademy.tictactoe;
 
 import pl.javaacademy.tictactoe.common.Marks;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -16,7 +18,7 @@ class Board {
 
     Board(BoardSize boardSize) {
         fields = new HashMap<>();
-        fieldIds.forEach(integer -> fields.put(integer, null));
+        fieldIds.forEach(integer -> fields.put(integer, Marks.EMPTY));
 
         this.size = boardSize;
     }
@@ -46,11 +48,27 @@ class Board {
         return emptyFieldsCounter == 0;
     }
 
+    List<Marks> getMarksFromRow(int rowNumber){
+
+        List<Marks> result = new ArrayList<>();
+        List<Integer> indexes = size.getHorizontalIndexes(rowNumber);
+        indexes.forEach(integer -> result.add(fields.get(integer)));
+        return result;
+    }
+
+    List<Marks> getMarksFromColumn(int columnNumber){
+
+        List<Marks> result = new ArrayList<>();
+        List<Integer> indexes = size.getVerticalIndexes(columnNumber);
+        indexes.forEach(integer -> result.add(fields.get(integer)));
+        return result;
+    }
+
     private boolean isFieldFree(Integer selectedField) {
-        return fields.get(selectedField) == null;
+        return fields.get(selectedField) == Marks.EMPTY;
     }
 
     private String selectMark(int id) {
-        return fields.get(id) != null ? String.valueOf(fields.get(id)) : ".";
+        return fields.get(id) != Marks.EMPTY ? String.valueOf(fields.get(id)) : ".";
     }
 }

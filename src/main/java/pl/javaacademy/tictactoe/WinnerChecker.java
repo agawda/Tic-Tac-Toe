@@ -7,4 +7,35 @@ import java.util.List;
 
 class WinnerChecker {
 
+    GameState findWinner(Board board) {
+
+        Marks winnerMark = Marks.EMPTY;
+        List<Marks> marksList;
+        int tmpRow = 1;
+
+        while (winnerMark == Marks.EMPTY && tmpRow < 4) {
+            marksList = board.getMarksFromRow(tmpRow);
+            if (sameMarksInList(marksList)) {
+                winnerMark = marksList.get(0);
+            }
+            tmpRow++;
+        }
+        return selectGameState(winnerMark);
+    }
+
+    private boolean sameMarksInList(List<Marks> marks) {
+        return marks.stream().allMatch(marks.get(0)::equals);
+    }
+
+    private GameState selectGameState(Marks winnerMark) {
+
+        switch (winnerMark) {
+            case O:
+                return GameState.O_WIN;
+            case X:
+                return GameState.X_WIN;
+            default:
+                return GameState.NO_WINNER;
+        }
+    }
 }

@@ -19,11 +19,11 @@ class PlayerSelector {
         return moveId % 2 == 0 ? secondPlayerMark : startingPlayerMark;
     }
 
-    // TODO: don't work with more than 2 marks
     private Marks getSecondPlayerMark() {
 
         ArrayList<Marks> allMarks = new ArrayList<>(Arrays.asList(Marks.values()));
         allMarks.remove(startingPlayerMark);
+        allMarks.remove(Marks.EMPTY);
         return allMarks.get(0);
     }
 }

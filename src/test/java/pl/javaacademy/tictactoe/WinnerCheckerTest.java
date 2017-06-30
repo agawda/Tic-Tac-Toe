@@ -1,6 +1,7 @@
 package pl.javaacademy.tictactoe;
 
 import org.testng.annotations.BeforeGroups;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pl.javaacademy.tictactoe.common.GameState;
 import pl.javaacademy.tictactoe.common.Marks;
@@ -12,8 +13,8 @@ public class WinnerCheckerTest {
     private WinnerChecker checker;
     private Board board;
 
-    @BeforeGroups(groups = "3x3 board")
-    public void before3x3Group() {
+    @BeforeMethod()
+    public void before() {
         checker = new WinnerChecker();
         board = new Board(new BoardSize(3, 3));
     }
@@ -26,6 +27,8 @@ public class WinnerCheckerTest {
     // region 3x3 group tests
     @Test(groups = "3x3 board")
     public void shouldFindNoWinnerForEmptyBoard() {
+
+        // Given
 
         // When
         GameState state = checker.findWinner(board);
@@ -41,6 +44,21 @@ public class WinnerCheckerTest {
         board.updateBoard(1, Marks.X);
         board.updateBoard(2, Marks.X);
         board.updateBoard(3, Marks.X);
+
+        // When
+        GameState state = checker.findWinner(board);
+
+        // Then
+        assertEquals(state, GameState.X_WIN);
+    }
+
+    @Test(groups = "3x3 board")
+    public void shouldFindWinnerInFirstColumn() {
+
+        // Given
+        board.updateBoard(1, Marks.X);
+        board.updateBoard(4, Marks.X);
+        board.updateBoard(7, Marks.X);
 
         // When
         GameState state = checker.findWinner(board);
@@ -68,11 +86,44 @@ public class WinnerCheckerTest {
     }
 
     @Test(groups = "3x3 board")
+    public void shouldFindWinnerInSecondColumn() {
+
+        // Given
+        board.updateBoard(1, Marks.X);
+        board.updateBoard(4, Marks.O);
+        board.updateBoard(7, Marks.O);
+        board.updateBoard(2, Marks.X);
+        board.updateBoard(5, Marks.X);
+        board.updateBoard(8, Marks.X);
+
+        // When
+        GameState state = checker.findWinner(board);
+
+        // Then
+        assertEquals(state, GameState.X_WIN);
+    }
+
+    @Test(groups = "3x3 board")
     public void shouldFindWinnerWithEmptyFieldsOnBoard() {
 
         // Given
         board.updateBoard(7, Marks.O);
         board.updateBoard(8, Marks.O);
+        board.updateBoard(9, Marks.O);
+
+        // When
+        GameState state = checker.findWinner(board);
+
+        // Then
+        assertEquals(state, GameState.O_WIN);
+    }
+
+    @Test(groups = "3x3 board")
+    public void shouldFindColumnWinnerWithEmptyFieldsOnBoard() {
+
+        // Given
+        board.updateBoard(3, Marks.O);
+        board.updateBoard(6, Marks.O);
         board.updateBoard(9, Marks.O);
 
         // When

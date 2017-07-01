@@ -20,3 +20,5 @@ TODO List:
 12. Calculating points (3 - for game winner, 1 - when its draw)
 13. Customize win condition
 
+14. Server
+15. Client

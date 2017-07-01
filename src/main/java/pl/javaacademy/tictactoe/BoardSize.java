@@ -36,7 +36,7 @@ class BoardSize {
         Stream<Integer> stream = IntStream.range(firstIndex, lastIndex).boxed();
         List<Integer> result = new ArrayList<>();
 
-        stream.forEach(integer -> result.add(integer));
+        stream.forEach(result::add);
         return result;
     }
 

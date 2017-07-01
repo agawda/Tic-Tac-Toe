@@ -20,7 +20,7 @@ class PlayerSelector {
     }
 
     private Marks getSecondPlayerMark() {
-
+        //TODO: move this to Marks enum
         ArrayList<Marks> allMarks = new ArrayList<>(Arrays.asList(Marks.values()));
         allMarks.remove(startingPlayerMark);
         allMarks.remove(Marks.EMPTY);

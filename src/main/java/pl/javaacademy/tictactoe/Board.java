@@ -12,8 +12,9 @@ import java.util.stream.Stream;
 class Board {
 
     private Stream<Integer> fieldIds = IntStream.range(1, 10).boxed(); //generate numbers 1-9
-
+    //TODO: extract Fields class to manage fields
     Map<Integer, Marks> fields;
+    //TODO:
     BoardSize size;
 
     Board(BoardSize boardSize) {
@@ -36,7 +37,7 @@ class Board {
     boolean isFieldSuitable(Integer selectedField) {
         return (isFieldFree(selectedField) && size.isFieldOnBoard(selectedField));
     }
-
+    //TODO: it's possible to use stream here
     boolean boardIsFilled() {
 
         int emptyFieldsCounter = 0;
@@ -69,6 +70,7 @@ class Board {
     }
 
     private String selectMark(int id) {
+        //TODO: show field number instead of dots
         return fields.get(id) != Marks.EMPTY ? String.valueOf(fields.get(id)) : ".";
     }
 }

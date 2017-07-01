@@ -16,6 +16,7 @@ abstract class UserCommunication<T> {
                 value = castUserInput(userInput);
 
             } catch (ClassCastException | IllegalArgumentException e) {
+//                throw new IllegalArgumentException();
                 System.err.println("You put wrong value, please try again");
             }
         }

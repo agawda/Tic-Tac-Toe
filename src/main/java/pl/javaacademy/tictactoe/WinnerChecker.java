@@ -6,6 +6,7 @@ import java.util.List;
  * Do more generalizations
  */
 class WinnerChecker {
+    //TODO: it's impossible to win the game atm
 
     GameState findWinner(Board board) {
 

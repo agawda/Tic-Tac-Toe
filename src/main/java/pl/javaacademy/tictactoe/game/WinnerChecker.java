@@ -1,4 +1,4 @@
-package pl.javaacademy.tictactoe;
+package pl.javaacademy.tictactoe.game;
 
 import java.util.List;
 

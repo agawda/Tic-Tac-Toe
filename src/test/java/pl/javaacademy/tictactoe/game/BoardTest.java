@@ -1,4 +1,4 @@
-package pl.javaacademy.tictactoe;
+package pl.javaacademy.tictactoe.game;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -7,9 +7,7 @@ import java.util.List;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertFalse;
-import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.*;
 
 public class BoardTest {
 

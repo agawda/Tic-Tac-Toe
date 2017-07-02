@@ -1,4 +1,4 @@
-package pl.javaacademy.tictactoe;
+package pl.javaacademy.tictactoe.io;
 
 /*
  * I was playing with generics to learn them better and it worked, so I don.t changed it

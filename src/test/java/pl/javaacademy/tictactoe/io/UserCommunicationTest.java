@@ -1,8 +1,12 @@
-package pl.javaacademy.tictactoe;
+package pl.javaacademy.tictactoe.io;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import pl.javaacademy.tictactoe.game.Mark;
+import pl.javaacademy.tictactoe.io.IntegerInput;
+import pl.javaacademy.tictactoe.io.MarkInput;
+import pl.javaacademy.tictactoe.io.UserCommunication;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;

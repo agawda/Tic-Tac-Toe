@@ -1,4 +1,8 @@
-package pl.javaacademy.tictactoe;
+package pl.javaacademy.tictactoe.game;
+
+import pl.javaacademy.tictactoe.io.IntegerInput;
+import pl.javaacademy.tictactoe.io.MarkInput;
+import pl.javaacademy.tictactoe.io.UserCommunication;
 
 public class BestOfThreeGame implements Game {
     private Board board;

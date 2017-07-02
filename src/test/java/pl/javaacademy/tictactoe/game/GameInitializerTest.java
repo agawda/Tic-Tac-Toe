@@ -1,6 +1,4 @@
-package pl.javaacademy.tictactoe;
-
-import org.testng.annotations.Test;
+package pl.javaacademy.tictactoe.game;
 
 public class GameInitializerTest {
 //    @Test

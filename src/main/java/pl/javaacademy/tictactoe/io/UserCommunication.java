@@ -1,4 +1,4 @@
-package pl.javaacademy.tictactoe;
+package pl.javaacademy.tictactoe.io;
 
 import java.util.Scanner;
 
@@ -7,7 +7,7 @@ public abstract class UserCommunication<T> {
     private Scanner scanner = new Scanner(System.in);
 
     // TODO: add some restrictions (eg. board size < 100)
-    T read() {
+    public T read() {
 
         T value = null;
         while ((value == null)) {

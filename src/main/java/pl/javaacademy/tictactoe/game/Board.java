@@ -1,4 +1,5 @@
-package pl.javaacademy.tictactoe;
+package pl.javaacademy.tictactoe.game;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;

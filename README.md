@@ -9,7 +9,15 @@
 * Empty board should display numbers, not dots
 * Create a server
 * Create methods in Mark enum :octocat:
-* Game interface and class
+* Game interface and class :octocat:
+* Output class (when the server is done I think)
+* Generalize winning algorithm
+* Best of three actually
+* Player names (so Player class)
+* Players class (to manage collection)
+* Fields class (to manage collection)
+* Player scores
+* ... more coming soon
 
 ## Requirements list:
 1. It is "best of three", though I can quit mid-way through.

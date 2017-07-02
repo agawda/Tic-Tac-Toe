@@ -1,6 +1,7 @@
-package pl.javaacademy.tictactoe;
+package pl.javaacademy.tictactoe.game;
 
-enum Mark {
+//TODO: for now it's public, but I'll come up with something later (errors in MarkInput class)
+public enum Mark {
     X, O, EMPTY;
 
     public static String getStringFromMark(Mark mark) {

@@ -15,7 +15,6 @@ class Board {
     private Stream<Integer> fieldIds = IntStream.range(1, 10).boxed(); //generate numbers 1-9
     //TODO: extract Fields class to manage fields
     Map<Integer, Mark> fields;
-    //TODO:
     BoardSize size;
 
     Board(BoardSize boardSize) {

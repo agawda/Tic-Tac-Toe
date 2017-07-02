@@ -2,7 +2,7 @@ package pl.javaacademy.tictactoe;
 
 import java.util.Scanner;
 
-abstract class UserCommunication<T> {
+public abstract class UserCommunication<T> {
 
     private Scanner scanner = new Scanner(System.in);
 

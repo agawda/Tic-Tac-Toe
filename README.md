@@ -9,7 +9,7 @@
 * Empty board should display numbers, not dots
 * Create a server
 * Create methods in Mark enum :octocat:
-
+* Game interface and class
 
 ## Requirements list:
 1. It is "best of three", though I can quit mid-way through.

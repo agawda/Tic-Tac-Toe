@@ -30,7 +30,7 @@ public class UserCommunicationTest {
 
     @Test
     public void testMarkCasting() {
-        UserCommunication<Mark> markInput = new MarksInput();
+        UserCommunication<Mark> markInput = new MarkInput();
         assertTrue(markInput.read() != null);
     }
 

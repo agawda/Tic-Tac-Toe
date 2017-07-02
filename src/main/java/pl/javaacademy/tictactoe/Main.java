@@ -25,7 +25,8 @@ public class Main {
         Board board = new Board(boardSize);
         board.displayBoard();
         int moveCounter = 1;
-        while (moveCounter < 10) {
+        WinnerChecker winnerChecker = new WinnerChecker();
+        while (winnerChecker.findWinner(board).equals(GameState.NO_WINNER) && moveCounter < 10) {
             Mark currentPlayerMark = playerSelector.getPlayerForMove(moveCounter);
             System.out.println(String.format("Player %s, please select field(1-9)", String.valueOf(currentPlayerMark)));
             Integer selectedField = integerReader.read();

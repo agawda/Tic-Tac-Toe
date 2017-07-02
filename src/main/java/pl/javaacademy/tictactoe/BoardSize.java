@@ -29,7 +29,7 @@ class BoardSize {
         return width * height;
     }
 
-    List<Integer> getHorizontalIndexes(int startingPoint) {
+    List<Integer> getHorizontalIndices(int startingPoint) {
         int firstIndex = (startingPoint - 1) * width + 1;
         int lastIndex = startingPoint * width + 1;
 
@@ -40,7 +40,7 @@ class BoardSize {
         return result;
     }
 
-    List<Integer> getVerticalIndexes(int startingPoint) {
+    List<Integer> getVerticalIndices(int startingPoint) {
         List<Integer> result = new ArrayList<>();
         while (startingPoint <= width * height) {
             result.add(startingPoint);

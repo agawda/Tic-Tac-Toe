@@ -6,7 +6,7 @@ import java.util.List;
  * Do more generalizations
  */
 class WinnerChecker {
-    //TODO: it's impossible to win the game atm
+    //TODO: it's possible to win the game horizontally and vertically, but diagonals don't work
 
     GameState findWinner(Board board) {
 

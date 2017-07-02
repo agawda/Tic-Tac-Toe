@@ -52,7 +52,7 @@ class Board {
     List<Mark> getMarksFromRow(int rowNumber){
 
         List<Mark> result = new ArrayList<>();
-        List<Integer> indexes = size.getHorizontalIndexes(rowNumber);
+        List<Integer> indexes = size.getHorizontalIndices(rowNumber);
         indexes.forEach(integer -> result.add(fields.get(integer)));
         return result;
     }
@@ -60,7 +60,7 @@ class Board {
     List<Mark> getMarksFromColumn(int columnNumber){
 
         List<Mark> result = new ArrayList<>();
-        List<Integer> indexes = size.getVerticalIndexes(columnNumber);
+        List<Integer> indexes = size.getVerticalIndices(columnNumber);
         indexes.forEach(integer -> result.add(fields.get(integer)));
         return result;
     }

@@ -4,7 +4,7 @@
 
 ## TODO:
 * Create a class which validates user input
-* Create a winning algorithm
+* Create a winning algorithm (diagonals)
 * Empty board should display numbers, not dots
 * Create a server
 * Create methods in Mark enum

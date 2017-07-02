@@ -61,7 +61,7 @@ public class BoardSizeTest {
     public void shouldReturnAllFieldsNumberToCheckFromFirstRow() {
 
         BoardSize boardSize = new BoardSize(3, 3);
-        List<Integer> indexesList = boardSize.getHorizontalIndexes(1);
+        List<Integer> indexesList = boardSize.getHorizontalIndices(1);
 
         assertEquals(Integer.valueOf(1), indexesList.get(0));
         assertEquals(Integer.valueOf(2), indexesList.get(1));
@@ -72,7 +72,7 @@ public class BoardSizeTest {
     public void shouldReturnAllFieldsNumberToCheckFromSecondRow() {
 
         BoardSize boardSize = new BoardSize(3, 3);
-        List<Integer> indexesList = boardSize.getHorizontalIndexes(2);
+        List<Integer> indexesList = boardSize.getHorizontalIndices(2);
 
         assertEquals(Integer.valueOf(4), indexesList.get(0));
         assertEquals(Integer.valueOf(5), indexesList.get(1));
@@ -83,7 +83,7 @@ public class BoardSizeTest {
     public void shouldReturnAllFieldsNumberToCheckFromThirdRow() {
 
         BoardSize boardSize = new BoardSize(3, 3);
-        List<Integer> indexesList = boardSize.getHorizontalIndexes(3);
+        List<Integer> indexesList = boardSize.getHorizontalIndices(3);
 
         assertEquals(Integer.valueOf(7), indexesList.get(0));
         assertEquals(Integer.valueOf(8), indexesList.get(1));
@@ -94,7 +94,7 @@ public class BoardSizeTest {
     public void shouldReturnAllFieldsNumberToCheckFromNotSquareBoard() {
 
         BoardSize boardSize = new BoardSize(4, 8);
-        List<Integer> indexesList = boardSize.getHorizontalIndexes(6);
+        List<Integer> indexesList = boardSize.getHorizontalIndices(6);
 
         assertEquals(Integer.valueOf(21), indexesList.get(0));
         assertEquals(Integer.valueOf(22), indexesList.get(1));
@@ -106,7 +106,7 @@ public class BoardSizeTest {
     public void shouldReturnAllFieldsNumberToCheckFromFirstColumn() {
 
         BoardSize boardSize = new BoardSize(3, 3);
-        List<Integer> indexesList = boardSize.getVerticalIndexes(1);
+        List<Integer> indexesList = boardSize.getVerticalIndices(1);
 
         assertEquals(Integer.valueOf(1), indexesList.get(0));
         assertEquals(Integer.valueOf(4), indexesList.get(1));
@@ -117,7 +117,7 @@ public class BoardSizeTest {
     public void shouldReturnAllFieldsNumberToCheckFromSecondColumn() {
 
         BoardSize boardSize = new BoardSize(3, 3);
-        List<Integer> indexesList = boardSize.getVerticalIndexes(2);
+        List<Integer> indexesList = boardSize.getVerticalIndices(2);
 
         assertEquals(Integer.valueOf(2), indexesList.get(0));
         assertEquals(Integer.valueOf(5), indexesList.get(1));
@@ -128,7 +128,7 @@ public class BoardSizeTest {
     public void shouldReturnAllFieldsNumberToCheckFromThirdColumn() {
 
         BoardSize boardSize = new BoardSize(3, 3);
-        List<Integer> indexesList = boardSize.getVerticalIndexes(3);
+        List<Integer> indexesList = boardSize.getVerticalIndices(3);
 
         assertEquals(Integer.valueOf(3), indexesList.get(0));
         assertEquals(Integer.valueOf(6), indexesList.get(1));
@@ -139,7 +139,7 @@ public class BoardSizeTest {
     public void shouldReturnListWithVerticalIndexesOfRectangleBoard() {
 
         BoardSize boardSize = new BoardSize(4, 8);
-        List<Integer> indexesList = boardSize.getVerticalIndexes(3);
+        List<Integer> indexesList = boardSize.getVerticalIndices(3);
 
         assertEquals(Integer.valueOf(3), indexesList.get(0));
         assertEquals(Integer.valueOf(7), indexesList.get(1));

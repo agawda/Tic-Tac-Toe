@@ -3,12 +3,12 @@ package pl.javaacademy.tictactoe;
 public class Main {
 
     public static void main(String[] args) {
-
+        System.out.println(String.valueOf(Mark.EMPTY));
         UserCommunication<Integer> integerReader = new IntegerInput();
-        UserCommunication<Marks> userMarkReader = new MarksInput();
+        UserCommunication<Mark> userMarkReader = new MarksInput();
 
         System.out.println("Choose starting mark ('X' or 'O')");
-        Marks startingMark = userMarkReader.read();
+        Mark startingMark = userMarkReader.read();
         System.out.println("You selected: " + startingMark);
         PlayerSelector playerSelector = new PlayerSelector(startingMark);
 
@@ -26,7 +26,7 @@ public class Main {
         board.displayBoard();
         int moveCounter = 1;
         while (moveCounter < 10) {
-            Marks currentPlayerMark = playerSelector.getPlayerForMove(moveCounter);
+            Mark currentPlayerMark = playerSelector.getPlayerForMove(moveCounter);
             System.out.println(String.format("Player %s, please select field(1-9)", String.valueOf(currentPlayerMark)));
             Integer selectedField = integerReader.read();
             while (!board.isFieldSuitable(selectedField)) {

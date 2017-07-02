@@ -40,9 +40,9 @@ public class WinnerCheckerTest {
 
         // Given
         board = new Board(new BoardSize(3, 3));
-        board.updateBoard(1, Marks.X);
-        board.updateBoard(2, Marks.X);
-        board.updateBoard(3, Marks.X);
+        board.updateBoard(1, Mark.X);
+        board.updateBoard(2, Mark.X);
+        board.updateBoard(3, Mark.X);
 
         // When
         GameState state = checker.findWinner(board);
@@ -56,9 +56,9 @@ public class WinnerCheckerTest {
 
         // Given
         board = new Board(new BoardSize(3, 3));
-        board.updateBoard(1, Marks.X);
-        board.updateBoard(4, Marks.X);
-        board.updateBoard(7, Marks.X);
+        board.updateBoard(1, Mark.X);
+        board.updateBoard(4, Mark.X);
+        board.updateBoard(7, Mark.X);
 
         // When
         GameState state = checker.findWinner(board);
@@ -72,12 +72,12 @@ public class WinnerCheckerTest {
 
         // Given
         board = new Board(new BoardSize(3, 3));
-        board.updateBoard(1, Marks.X);
-        board.updateBoard(2, Marks.O);
-        board.updateBoard(3, Marks.O);
-        board.updateBoard(4, Marks.X);
-        board.updateBoard(5, Marks.X);
-        board.updateBoard(6, Marks.X);
+        board.updateBoard(1, Mark.X);
+        board.updateBoard(2, Mark.O);
+        board.updateBoard(3, Mark.O);
+        board.updateBoard(4, Mark.X);
+        board.updateBoard(5, Mark.X);
+        board.updateBoard(6, Mark.X);
 
         // When
         GameState state = checker.findWinner(board);
@@ -91,12 +91,12 @@ public class WinnerCheckerTest {
 
         // Given
         board = new Board(new BoardSize(3, 3));
-        board.updateBoard(1, Marks.X);
-        board.updateBoard(4, Marks.O);
-        board.updateBoard(7, Marks.O);
-        board.updateBoard(2, Marks.X);
-        board.updateBoard(5, Marks.X);
-        board.updateBoard(8, Marks.X);
+        board.updateBoard(1, Mark.X);
+        board.updateBoard(4, Mark.O);
+        board.updateBoard(7, Mark.O);
+        board.updateBoard(2, Mark.X);
+        board.updateBoard(5, Mark.X);
+        board.updateBoard(8, Mark.X);
 
         // When
         GameState state = checker.findWinner(board);
@@ -110,9 +110,9 @@ public class WinnerCheckerTest {
 
         // Given
         board = new Board(new BoardSize(3, 3));
-        board.updateBoard(7, Marks.O);
-        board.updateBoard(8, Marks.O);
-        board.updateBoard(9, Marks.O);
+        board.updateBoard(7, Mark.O);
+        board.updateBoard(8, Mark.O);
+        board.updateBoard(9, Mark.O);
 
         // When
         GameState state = checker.findWinner(board);
@@ -126,9 +126,9 @@ public class WinnerCheckerTest {
 
         // Given
         board = new Board(new BoardSize(3, 3));
-        board.updateBoard(3, Marks.O);
-        board.updateBoard(6, Marks.O);
-        board.updateBoard(9, Marks.O);
+        board.updateBoard(3, Mark.O);
+        board.updateBoard(6, Mark.O);
+        board.updateBoard(9, Mark.O);
 
         // When
         GameState state = checker.findWinner(board);
@@ -142,15 +142,15 @@ public class WinnerCheckerTest {
 
         // Given
         board = new Board(new BoardSize(3, 3));
-        board.updateBoard(1, Marks.O);
-        board.updateBoard(2, Marks.X);
-        board.updateBoard(3, Marks.X);
-        board.updateBoard(4, Marks.X);
-        board.updateBoard(5, Marks.O);
-        board.updateBoard(6, Marks.O);
-        board.updateBoard(7, Marks.O);
-        board.updateBoard(8, Marks.O);
-        board.updateBoard(9, Marks.X);
+        board.updateBoard(1, Mark.O);
+        board.updateBoard(2, Mark.X);
+        board.updateBoard(3, Mark.X);
+        board.updateBoard(4, Mark.X);
+        board.updateBoard(5, Mark.O);
+        board.updateBoard(6, Mark.O);
+        board.updateBoard(7, Mark.O);
+        board.updateBoard(8, Mark.O);
+        board.updateBoard(9, Mark.X);
 
         // When
         GameState state = checker.findWinner(board);

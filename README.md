@@ -7,6 +7,7 @@
 * Create a winning algorithm
 * Empty board should display numbers, not dots
 * Create a server
+* Create methods in Mark enum
 
 
 ## Requirements list:

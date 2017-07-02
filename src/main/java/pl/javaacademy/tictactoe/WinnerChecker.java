@@ -10,34 +10,34 @@ class WinnerChecker {
 
     GameState findWinner(Board board) {
 
-        Marks winnerMark = Marks.EMPTY;
-        List<Marks> marksList;
+        Mark winnerMark = Mark.EMPTY;
+        List<Mark> markList;
         int tmpRow = 1;
         int tmpColumn = 1;
 
-        while (winnerMark == Marks.EMPTY && tmpRow < 4) {
-            marksList = board.getMarksFromRow(tmpRow);
-            if (sameMarksInList(marksList)) {
-                winnerMark = marksList.get(0);
+        while (winnerMark == Mark.EMPTY && tmpRow < 4) {
+            markList = board.getMarksFromRow(tmpRow);
+            if (sameMarksInList(markList)) {
+                winnerMark = markList.get(0);
             }
             tmpRow++;
         }
 
-        while (winnerMark == Marks.EMPTY && tmpColumn < 4) {
-            marksList = board.getMarksFromColumn(tmpColumn);
-            if (sameMarksInList(marksList)) {
-                winnerMark = marksList.get(0);
+        while (winnerMark == Mark.EMPTY && tmpColumn < 4) {
+            markList = board.getMarksFromColumn(tmpColumn);
+            if (sameMarksInList(markList)) {
+                winnerMark = markList.get(0);
             }
             tmpColumn++;
         }
         return selectGameState(winnerMark);
     }
 
-    private boolean sameMarksInList(List<Marks> marks) {
+    private boolean sameMarksInList(List<Mark> marks) {
         return marks.stream().allMatch(marks.get(0)::equals);
     }
 
-    private GameState selectGameState(Marks winnerMark) {
+    private GameState selectGameState(Mark winnerMark) {
 
         switch (winnerMark) {
             case O:

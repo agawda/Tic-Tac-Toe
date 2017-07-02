@@ -7,23 +7,23 @@ import java.util.Arrays;
  */
 class PlayerSelector {
 
-    private Marks startingPlayerMark;
-    private Marks secondPlayerMark;
+    private Mark startingPlayerMark;
+    private Mark secondPlayerMark;
 
-    PlayerSelector(Marks startingPlayerMark) {
+    PlayerSelector(Mark startingPlayerMark) {
         this.startingPlayerMark = startingPlayerMark;
         this.secondPlayerMark = getSecondPlayerMark();
     }
 
-    Marks getPlayerForMove(int moveId) {
+    Mark getPlayerForMove(int moveId) {
         return moveId % 2 == 0 ? secondPlayerMark : startingPlayerMark;
     }
 
-    private Marks getSecondPlayerMark() {
-        //TODO: move this to Marks enum
-        ArrayList<Marks> allMarks = new ArrayList<>(Arrays.asList(Marks.values()));
+    private Mark getSecondPlayerMark() {
+        //TODO: move this to Mark enum
+        ArrayList<Mark> allMarks = new ArrayList<>(Arrays.asList(Mark.values()));
         allMarks.remove(startingPlayerMark);
-        allMarks.remove(Marks.EMPTY);
+        allMarks.remove(Mark.EMPTY);
         return allMarks.get(0);
     }
 }

@@ -29,25 +29,25 @@ public class PlayerSelectorTest {
     public void shouldReturnStartingMarkForOddTurn(int moveId) {
 
         // Given
-        PlayerSelector selector = new PlayerSelector(Marks.X);
+        PlayerSelector selector = new PlayerSelector(Mark.X);
 
         // When
-        Marks player = selector.getPlayerForMove(moveId);
+        Mark player = selector.getPlayerForMove(moveId);
 
         // Then
-        assertEquals(player, Marks.X);
+        assertEquals(player, Mark.X);
     }
 
     @Test(dataProvider = "EvenNumbersProvider")
     public void shouldReturnSecondMarkForEvenTurn(int moveId) {
 
         // Given
-        PlayerSelector selector = new PlayerSelector(Marks.O);
+        PlayerSelector selector = new PlayerSelector(Mark.O);
 
         // When
-        Marks player = selector.getPlayerForMove(moveId);
+        Mark player = selector.getPlayerForMove(moveId);
 
         // Then
-        assertEquals(player, Marks.X);
+        assertEquals(player, Mark.X);
     }
 }

@@ -57,7 +57,7 @@ public class BoardTest {
         board = new Board(new BoardSize(width, height));
 
         Stream<Integer> fieldIds = IntStream.range(1, 10).boxed(); //generate numbers 1-9
-        fieldIds.forEach(integer -> board.updateBoard(integer, Marks.X));
+        fieldIds.forEach(integer -> board.updateBoard(integer, Mark.X));
 
         // Then
         assertFalse(board.isFieldSuitable(field), message);
@@ -81,17 +81,17 @@ public class BoardTest {
 
         // Given
         board = new Board(new BoardSize(3, 3));
-        board.updateBoard(1, Marks.X);
-        board.updateBoard(2, Marks.X);
-        board.updateBoard(3, Marks.O);
+        board.updateBoard(1, Mark.X);
+        board.updateBoard(2, Mark.X);
+        board.updateBoard(3, Mark.O);
 
         // When
-        List<Marks> readMarks = board.getMarksFromRow(1);
+        List<Mark> readMarks = board.getMarksFromRow(1);
 
         // Then
-        assertEquals(readMarks.get(0), Marks.X);
-        assertEquals(readMarks.get(1), Marks.X);
-        assertEquals(readMarks.get(2), Marks.O);
+        assertEquals(readMarks.get(0), Mark.X);
+        assertEquals(readMarks.get(1), Mark.X);
+        assertEquals(readMarks.get(2), Mark.O);
     }
 
     @Test
@@ -99,19 +99,19 @@ public class BoardTest {
 
         // Given
         board = new Board(new BoardSize(4, 5));
-        board.updateBoard(9, Marks.X);
-        board.updateBoard(10, Marks.X);
-        board.updateBoard(11, Marks.O);
-        board.updateBoard(12, Marks.O);
+        board.updateBoard(9, Mark.X);
+        board.updateBoard(10, Mark.X);
+        board.updateBoard(11, Mark.O);
+        board.updateBoard(12, Mark.O);
 
         // When
-        List<Marks> readMarks = board.getMarksFromRow(3);
+        List<Mark> readMarks = board.getMarksFromRow(3);
 
         // Then
-        assertEquals(readMarks.get(0), Marks.X);
-        assertEquals(readMarks.get(1), Marks.X);
-        assertEquals(readMarks.get(2), Marks.O);
-        assertEquals(readMarks.get(3), Marks.O);
+        assertEquals(readMarks.get(0), Mark.X);
+        assertEquals(readMarks.get(1), Mark.X);
+        assertEquals(readMarks.get(2), Mark.O);
+        assertEquals(readMarks.get(3), Mark.O);
     }
 
     @Test
@@ -119,17 +119,17 @@ public class BoardTest {
 
         // Given
         board = new Board(new BoardSize(3, 3));
-        board.updateBoard(1, Marks.X);
-        board.updateBoard(4, Marks.O);
-        board.updateBoard(7, Marks.X);
+        board.updateBoard(1, Mark.X);
+        board.updateBoard(4, Mark.O);
+        board.updateBoard(7, Mark.X);
 
         // When
-        List<Marks> readMarks = board.getMarksFromColumn(1);
+        List<Mark> readMarks = board.getMarksFromColumn(1);
 
         // Then
-        assertEquals(readMarks.get(0), Marks.X);
-        assertEquals(readMarks.get(1), Marks.O);
-        assertEquals(readMarks.get(2), Marks.X);
+        assertEquals(readMarks.get(0), Mark.X);
+        assertEquals(readMarks.get(1), Mark.O);
+        assertEquals(readMarks.get(2), Mark.X);
     }
 
     @Test
@@ -137,20 +137,20 @@ public class BoardTest {
 
         // Given
         board = new Board(new BoardSize(4, 5));
-        board.updateBoard(3, Marks.O);
-        board.updateBoard(7, Marks.X);
-        board.updateBoard(11, Marks.O);
-        board.updateBoard(15, Marks.X);
-        board.updateBoard(19, Marks.O);
+        board.updateBoard(3, Mark.O);
+        board.updateBoard(7, Mark.X);
+        board.updateBoard(11, Mark.O);
+        board.updateBoard(15, Mark.X);
+        board.updateBoard(19, Mark.O);
 
         // When
-        List<Marks> readMarks = board.getMarksFromColumn(3);
+        List<Mark> readMarks = board.getMarksFromColumn(3);
 
         // Then
-        assertEquals(readMarks.get(0), Marks.O);
-        assertEquals(readMarks.get(1), Marks.X);
-        assertEquals(readMarks.get(2), Marks.O);
-        assertEquals(readMarks.get(3), Marks.X);
-        assertEquals(readMarks.get(4), Marks.O);
+        assertEquals(readMarks.get(0), Mark.O);
+        assertEquals(readMarks.get(1), Mark.X);
+        assertEquals(readMarks.get(2), Mark.O);
+        assertEquals(readMarks.get(3), Mark.X);
+        assertEquals(readMarks.get(4), Mark.O);
     }
 }

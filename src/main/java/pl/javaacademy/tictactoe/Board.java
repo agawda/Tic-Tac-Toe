@@ -13,13 +13,13 @@ class Board {
 
     private Stream<Integer> fieldIds = IntStream.range(1, 10).boxed(); //generate numbers 1-9
     //TODO: extract Fields class to manage fields
-    Map<Integer, Marks> fields;
+    Map<Integer, Mark> fields;
     //TODO:
     BoardSize size;
 
     Board(BoardSize boardSize) {
         fields = new HashMap<>();
-        fieldIds.forEach(integer -> fields.put(integer, Marks.EMPTY));
+        fieldIds.forEach(integer -> fields.put(integer, Mark.EMPTY));
 
         this.size = boardSize;
     }
@@ -30,7 +30,7 @@ class Board {
         System.out.println(selectMark(7) + selectMark(8) + selectMark(9));
     }
 
-    void updateBoard(Integer selectedField, Marks playerMark) {
+    void updateBoard(Integer selectedField, Mark playerMark) {
         fields.put(selectedField, playerMark);
     }
 
@@ -49,28 +49,28 @@ class Board {
         return emptyFieldsCounter == 0;
     }
 
-    List<Marks> getMarksFromRow(int rowNumber){
+    List<Mark> getMarksFromRow(int rowNumber){
 
-        List<Marks> result = new ArrayList<>();
+        List<Mark> result = new ArrayList<>();
         List<Integer> indexes = size.getHorizontalIndexes(rowNumber);
         indexes.forEach(integer -> result.add(fields.get(integer)));
         return result;
     }
 
-    List<Marks> getMarksFromColumn(int columnNumber){
+    List<Mark> getMarksFromColumn(int columnNumber){
 
-        List<Marks> result = new ArrayList<>();
+        List<Mark> result = new ArrayList<>();
         List<Integer> indexes = size.getVerticalIndexes(columnNumber);
         indexes.forEach(integer -> result.add(fields.get(integer)));
         return result;
     }
 
     private boolean isFieldFree(Integer selectedField) {
-        return fields.get(selectedField) == Marks.EMPTY;
+        return fields.get(selectedField) == Mark.EMPTY;
     }
 
     private String selectMark(int id) {
         //TODO: show field number instead of dots
-        return fields.get(id) != Marks.EMPTY ? String.valueOf(fields.get(id)) : ".";
+        return fields.get(id) != Mark.EMPTY ? String.valueOf(fields.get(id)) : ".";
     }
 }

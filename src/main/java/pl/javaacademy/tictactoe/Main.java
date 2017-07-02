@@ -1,9 +1,10 @@
 package pl.javaacademy.tictactoe;
 
+import java.util.stream.IntStream;
+
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(String.valueOf(Mark.EMPTY));
         UserCommunication<Integer> integerReader = new IntegerInput();
         UserCommunication<Mark> userMarkReader = new MarksInput();
 
@@ -40,5 +41,6 @@ public class Main {
             board.displayBoard();
             moveCounter++;
         }
+
     }
 }

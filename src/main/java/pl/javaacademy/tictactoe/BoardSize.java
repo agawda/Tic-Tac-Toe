@@ -2,13 +2,17 @@ package pl.javaacademy.tictactoe;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 /*
- * Important class for me, because it knows size of board and thanks to this it can
- * calculate indexes to check for winner
+ * Important class for me, because it knows size of the board and thanks to this it can
+ * calculate indices to check for winner
  *
+ * Difference between diagonal cells:
+ * Top left - bottom right - width + 1 - descending
+ * Bottom left - top rigth - width - 1 - ascending
  */
 class BoardSize {
 
@@ -47,6 +51,16 @@ class BoardSize {
             startingPoint += width;
         }
         return result;
+    }
+
+    List<Integer> getDiagonalIndicesDescending(int startingPoint) {
+        int formula = width + 1;
+        return IntStream.iterate(startingPoint, i -> i + formula).limit(3).boxed().collect(Collectors.toList());
+    }
+
+    List<Integer> getDiagonalIndicesAscending(int startingPoint) {
+        int formula = width - 1;
+        return IntStream.iterate(startingPoint, i -> i + formula).limit(3).boxed().collect(Collectors.toList());
     }
 
     @Override

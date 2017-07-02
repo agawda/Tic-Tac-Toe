@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
+
 /*
  * Class storing board data. It has hardcoded 3x3 board
  */
@@ -37,6 +38,7 @@ class Board {
     boolean isFieldSuitable(Integer selectedField) {
         return (isFieldFree(selectedField) && size.isFieldOnBoard(selectedField));
     }
+
     //TODO: it's possible to use stream here
     boolean boardIsFilled() {
 
@@ -49,19 +51,35 @@ class Board {
         return emptyFieldsCounter == 0;
     }
 
-    List<Mark> getMarksFromRow(int rowNumber){
+    List<Mark> getMarksFromRow(int rowNumber) {
 
         List<Mark> result = new ArrayList<>();
-        List<Integer> indexes = size.getHorizontalIndices(rowNumber);
-        indexes.forEach(integer -> result.add(fields.get(integer)));
+        List<Integer> indices = size.getHorizontalIndices(rowNumber);
+        indices.forEach(integer -> result.add(fields.get(integer)));
         return result;
     }
 
-    List<Mark> getMarksFromColumn(int columnNumber){
+    List<Mark> getMarksFromColumn(int columnNumber) {
 
         List<Mark> result = new ArrayList<>();
-        List<Integer> indexes = size.getVerticalIndices(columnNumber);
-        indexes.forEach(integer -> result.add(fields.get(integer)));
+        List<Integer> indices = size.getVerticalIndices(columnNumber);
+        indices.forEach(integer -> result.add(fields.get(integer)));
+        return result;
+    }
+
+    List<Mark> getMarksDiagonalDescending() {
+        //TODO: remove magic number
+        List<Mark> result = new ArrayList<>();
+        List<Integer> indices = size.getDiagonalIndicesDescending(1);
+        indices.forEach(i -> result.add(fields.get(i)));
+        return result;
+    }
+
+    List<Mark> getMarksDiagonalAscending() {
+        //TODO: remove magic number
+        List<Mark> result = new ArrayList<>();
+        List<Integer> indices = size.getDiagonalIndicesAscending(3);
+        indices.forEach(i -> result.add(fields.get(i)));
         return result;
     }
 

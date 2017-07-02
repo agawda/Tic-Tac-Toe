@@ -19,6 +19,7 @@ class WinnerChecker {
             markList = board.getMarksFromRow(tmpRow);
             if (sameMarksInList(markList)) {
                 winnerMark = markList.get(0);
+                return selectGameState(winnerMark);
             }
             tmpRow++;
         }
@@ -27,9 +28,17 @@ class WinnerChecker {
             markList = board.getMarksFromColumn(tmpColumn);
             if (sameMarksInList(markList)) {
                 winnerMark = markList.get(0);
+                return selectGameState(winnerMark);
             }
             tmpColumn++;
         }
+
+        markList = board.getMarksDiagonalDescending();
+        if(sameMarksInList(markList)) winnerMark = markList.get(0);
+
+        markList = board.getMarksDiagonalAscending();
+        if(sameMarksInList(markList)) winnerMark = markList.get(0);
+
         return selectGameState(winnerMark);
     }
 

@@ -3,11 +3,12 @@
 2. java -jar PROJECT_DIRECTORY/target/TicTacToe-1.0.jar
 
 ## TODO:
+:octocat: - done
 * Create a class which validates user input
-* Create a winning algorithm (diagonals)
+* Create a winning algorithm (diagonals) :octocat:
 * Empty board should display numbers, not dots
 * Create a server
-* Create methods in Mark enum
+* Create methods in Mark enum :octocat:
 
 
 ## Requirements list:

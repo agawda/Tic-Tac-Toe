@@ -158,5 +158,17 @@ public class WinnerCheckerTest {
         // Then
         assertEquals(state, GameState.NO_WINNER);
     }
+
+    @Test(groups = "3x3 board")
+    public void shouldReturnWinningMarkDiagonalCase() {
+        board = new Board(new BoardSize(3, 3));
+        board.updateBoard(1, Mark.X);
+        board.updateBoard(5, Mark.X);
+        board.updateBoard(9, Mark.X);
+
+        GameState state = checker.findWinner(board);
+
+        assertEquals(state, GameState.X_WIN);
+    }
     // endregion
 }

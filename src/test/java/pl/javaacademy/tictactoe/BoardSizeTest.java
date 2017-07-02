@@ -150,4 +150,24 @@ public class BoardSizeTest {
         assertEquals(Integer.valueOf(27), indexesList.get(6));
         assertEquals(Integer.valueOf(31), indexesList.get(7));
     }
+
+    @Test
+    public void shouldReturnListWithDescendingIndices() {
+        BoardSize boardSize = new BoardSize(3, 3);
+        List<Integer> indices = boardSize.getDiagonalIndicesDescending(1);
+
+        assertEquals(indices.get(0), Integer.valueOf(1), "1");
+        assertEquals(indices.get(1), Integer.valueOf(5), "5");
+        assertEquals(indices.get(2), Integer.valueOf(9));
+    }
+
+    @Test
+    public void shouldReturnListWithAscendingIndices() {
+        BoardSize boardSize = new BoardSize(3, 3);
+        List<Integer> indices = boardSize.getDiagonalIndicesAscending(3);
+
+        assertEquals(indices.get(0), Integer.valueOf(3));
+        assertEquals(indices.get(1), Integer.valueOf(5));
+        assertEquals(indices.get(2), Integer.valueOf(7));
+    }
 }

@@ -19,6 +19,7 @@
 * Player scores :octocat:
 * Draw
 * Switch starting marks after every game
+* Make Game more testable
 * ... more coming soon
 
 ## Requirements list:

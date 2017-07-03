@@ -18,10 +18,17 @@ class BoardSize {
 
     private Integer width;
     private Integer height;
+    private Integer winningSequence;
 
     BoardSize(Integer width, Integer height) {
         this.width = width;
         this.height = height;
+    }
+
+    public BoardSize(Integer width, Integer height, Integer winningSequence) {
+        this.width = width;
+        this.height = height;
+        this.winningSequence = winningSequence;
     }
 
     // TODO: make sure field is > 0

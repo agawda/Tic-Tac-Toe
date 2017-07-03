@@ -151,4 +151,26 @@ public class BoardTest {
         assertEquals(readMarks.get(3), Mark.X);
         assertEquals(readMarks.get(4), Mark.O);
     }
+
+    @Test
+    public void shouldReturnFalseForNotFullBoard() {
+        board = new Board(new BoardSize(3, 3));
+        board.updateBoard(1, Mark.O);
+        assertFalse(board.boardIsFilled());
+    }
+
+    @Test
+    public void shouldReturnTrueForFullBoard() {
+        board = new Board(new BoardSize(3, 3));
+        board.updateBoard(1, Mark.O);
+        board.updateBoard(2, Mark.O);
+        board.updateBoard(3, Mark.O);
+        board.updateBoard(4, Mark.O);
+        board.updateBoard(5, Mark.O);
+        board.updateBoard(6, Mark.O);
+        board.updateBoard(7, Mark.O);
+        board.updateBoard(8, Mark.O);
+        board.updateBoard(9, Mark.O);
+        assertTrue(board.boardIsFilled());
+    }
 }

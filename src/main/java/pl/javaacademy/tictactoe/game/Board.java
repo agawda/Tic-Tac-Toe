@@ -15,8 +15,8 @@ class Board {
 
     private Stream<Integer> fieldIds = IntStream.range(1, 10).boxed(); //generate numbers 1-9
     //TODO: extract Fields class to manage fields
-    Map<Integer, Mark> fields;
-    BoardSize size;
+    private Map<Integer, Mark> fields;
+    private BoardSize size;
 
     Board(BoardSize boardSize) {
         fields = new HashMap<>();
@@ -44,7 +44,7 @@ class Board {
 
         int emptyFieldsCounter = 0;
         for (int i = 0; i < size.getNumberOfFields(); i++) {
-            if (fields.get(i) == null) {
+            if (fields.get(i) == Mark.EMPTY) {
                 emptyFieldsCounter++;
             }
         }

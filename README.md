@@ -17,6 +17,7 @@
 * Players class (to manage collection)
 * Fields class (to manage collection)
 * Player scores
+* Draw :octocat:
 * ... more coming soon
 
 ## Requirements list:

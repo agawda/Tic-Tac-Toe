@@ -7,10 +7,14 @@ import java.util.List;
  */
 class WinnerChecker {
     //TODO: it's possible to win the game horizontally and vertically, but diagonals don't work
+    private Mark winnerMark;
+
+    WinnerChecker() {
+        this.winnerMark = Mark.EMPTY;
+    }
 
     GameState findWinner(Board board) {
 
-        Mark winnerMark = Mark.EMPTY;
         List<Mark> markList;
         int tmpRow = 1;
         int tmpColumn = 1;
@@ -40,6 +44,10 @@ class WinnerChecker {
         if(sameMarksInList(markList)) winnerMark = markList.get(0);
 
         return selectGameState(winnerMark);
+    }
+
+    public Mark getWinnerMark() {
+        return winnerMark;
     }
 
     private boolean sameMarksInList(List<Mark> marks) {

@@ -29,6 +29,7 @@ public class BestOfThreeGame implements Game {
     public void play() {
         int moveCounter = 1;
         WinnerChecker winnerChecker = new WinnerChecker();
+        //TODO: refactor this
         while (winnerChecker.findWinner(board).equals(GameState.NO_WINNER) && moveCounter < 10) {
             Mark currentPlayerMark = playerSelector.getPlayerForMove(moveCounter);
             System.out.println(String.format("Player %s, please select field(1-9)", String.valueOf(currentPlayerMark)));
@@ -43,6 +44,7 @@ public class BestOfThreeGame implements Game {
             board.displayBoard();
             moveCounter++;
         }
+        System.out.printf("%s won. ", winnerChecker.getWinnerMark());
     }
 
     private class GameInitializer {

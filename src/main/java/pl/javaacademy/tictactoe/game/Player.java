@@ -1,5 +1,6 @@
 package pl.javaacademy.tictactoe.game;
 
+//TODO: Player could be an inner class of Players; refactor later
 class Player implements Comparable {
     private String name;
     private Mark mark;

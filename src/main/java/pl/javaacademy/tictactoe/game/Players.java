@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 class Players {
-    Map<Mark, Player> players;
+    private Map<Mark, Player> players;
 
     Players() {
         this.players = new HashMap<>();
@@ -24,10 +24,8 @@ class Players {
         players.replace(mark, player);
     }
 
-    void addPlayerScoreOnePoint(Mark mark) {
-        Player player = players.get(mark);
-        player.addOneScore();
-        players.replace(mark, player);
+    void addBothPlayersScoreOnePoint() {
+        players.forEach((k, v) -> v.addOneScore());
     }
 
     Integer getPlayerScore(Mark mark) {
@@ -38,7 +36,7 @@ class Players {
         Player player1 = players.get(Mark.X);
         Player player2 = players.get(Mark.O);
         if(player1.compareTo(player2) == 1) return player1.getMark();
-        if(player1.compareTo(player1) == -1) return player2.getMark();
+        if(player1.compareTo(player2) == -1) return player2.getMark();
         return Mark.EMPTY;
     }
 }

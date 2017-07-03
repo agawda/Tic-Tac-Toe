@@ -11,9 +11,16 @@ public class PlayersTest {
         players.addPlayer(new Player("A", Mark.X));
         players.addPlayer(new Player("B", Mark.O));
         players.addPlayerScoreThreePoints(Mark.X);
-        players.addPlayerScoreOnePoint(Mark.O);
         assertEquals(java.util.Optional.of(players.getPlayerScore(Mark.X)), java.util.Optional.of(3));
-        assertEquals(java.util.Optional.of(players.getPlayerScore(Mark.O)), java.util.Optional.of(1));
         assertEquals(players.getPlayerWithBetterScore(), Mark.X);
+    }
+
+    @Test
+    public void testAddScoreBothPlayers() {
+        Players players = new Players();
+        players.addPlayer(new Player("A", Mark.X));
+        players.addPlayer(new Player("B", Mark.O));
+        players.addBothPlayersScoreOnePoint();
+        assertEquals(players.getPlayerWithBetterScore(), Mark.EMPTY);
     }
 }

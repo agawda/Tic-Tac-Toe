@@ -6,18 +6,19 @@
 :octocat: - done
 * Create a class which validates user input
 * Create a winning algorithm (diagonals) :octocat:
-* Empty board should display numbers, not dots
+* Empty board should display numbers, not dots (not important for now tho)
 * Create a server
 * Create methods in Mark enum :octocat:
 * Game interface and class :octocat:
 * Output class (when the server is done I think)
 * Generalize winning algorithm
-* Best of three actually
-* Player names (so Player class)
-* Players class (to manage collection)
+* Best of three actually :octocat:
+* Player names (so Player class) :octocat:
+* Players class (to manage collection) :octocat:
 * Fields class (to manage collection)
-* Player scores
-* Draw :octocat:
+* Player scores :octocat:
+* Draw
+* Switch starting marks after every game
 * ... more coming soon
 
 ## Requirements list:

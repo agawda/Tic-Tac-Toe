@@ -24,29 +24,25 @@ public class BestOfThreeGame implements Game {
         //TODO: create classes which print messages to users
         gameInitializer.init();
         this.board = gameInitializer.board;
+        this.players = gameInitializer.players;
         this.playerSelector = new PlayerSelector(gameInitializer.startingMark);
         board.displayBoard();
     }
     @Override
     public void play() {
-        int moveCounter = 1;
-        WinnerChecker winnerChecker = new WinnerChecker();
-        //TODO: refactor this
-        while (winnerChecker.findWinner(board).equals(GameState.NO_WINNER) && moveCounter < 10) {
-            Mark currentPlayerMark = playerSelector.getPlayerForMove(moveCounter);
-            System.out.println(String.format("Player %s, please select field(1-9)", String.valueOf(currentPlayerMark)));
-            Integer selectedField = integerInput.read();
-            while (!board.isFieldSuitable(selectedField)) {
-                System.out.println("Field is occupied or not on board, please select another one");
-                selectedField = integerInput.read();
-            }
-            System.out.println("You selected: " + selectedField);
-
-            board.updateBoard(selectedField, currentPlayerMark);
-            board.displayBoard();
-            moveCounter++;
+        Play play;
+        for (int i = 0; i < 3; i++) {
+            //TODO: yes, this is ugly as hell :<
+            play = new Play(new Board(new BoardSize(3, 3)), gameInitializer.startingMark);
+            Mark winner = play.runTheGame();
+            assignScores(winner);
         }
-        System.out.printf("%s won. ", winnerChecker.getWinnerMark());
+        System.out.printf("%s won.", players.getPlayerWithBetterScore());
+    }
+
+    private void assignScores(Mark winningMark) {
+        if(winningMark.equals(Mark.EMPTY)) players.addBothPlayersScoreOnePoint();
+        else players.addPlayerScoreThreePoints(winningMark);
     }
 
     private class GameInitializer {

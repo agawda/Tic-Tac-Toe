@@ -43,8 +43,8 @@ class BoardSize {
 
     List<Integer> getHorizontalIndices(int startingPoint) {
         int firstIndex = (startingPoint - 1) * width + 1;
-        int lastIndex = startingPoint * width + 1 - winningSequence;
-
+//        int lastIndex = startingPoint * width + 1;
+        int lastIndex = winningSequence < width ? startingPoint * winningSequence + 1 : startingPoint * width + 1;
         Stream<Integer> stream = IntStream.range(firstIndex, lastIndex).boxed();
         List<Integer> result = new ArrayList<>();
 
@@ -56,7 +56,6 @@ class BoardSize {
         List<Integer> result = new ArrayList<>();
         int lastIndex = winningSequence < height ? winningSequence : height;
         while (startingPoint <= width * lastIndex) {
-            System.out.println(startingPoint);
             result.add(startingPoint);
             startingPoint += width;
         }

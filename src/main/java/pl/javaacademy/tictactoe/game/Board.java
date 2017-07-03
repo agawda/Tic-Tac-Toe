@@ -13,13 +13,13 @@ import java.util.stream.Stream;
  */
 class Board {
 
-    private Stream<Integer> fieldIds = IntStream.range(1, 10).boxed(); //generate numbers 1-9
     //TODO: extract Fields class to manage fields
     private Map<Integer, Mark> fields;
     private BoardSize size;
 
     Board(BoardSize boardSize) {
         fields = new HashMap<>();
+        Stream<Integer> fieldIds = IntStream.range(1, 10).boxed();
         fieldIds.forEach(integer -> fields.put(integer, Mark.EMPTY));
 
         this.size = boardSize;

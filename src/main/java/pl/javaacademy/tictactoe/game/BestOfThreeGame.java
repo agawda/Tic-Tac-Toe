@@ -7,6 +7,7 @@ import pl.javaacademy.tictactoe.io.UserCommunication;
 public class BestOfThreeGame implements Game {
     private Board board;
     private GameInitializer gameInitializer;
+    private Players players;
     private PlayerSelector playerSelector;
     private UserCommunication<Mark> markInput;
     private UserCommunication<Integer> integerInput;
@@ -15,6 +16,7 @@ public class BestOfThreeGame implements Game {
         this.markInput = new MarkInput();
         this.integerInput = new IntegerInput();
         this.gameInitializer = new GameInitializer();
+        this.players = new Players();
     }
 
     @Override
@@ -50,8 +52,15 @@ public class BestOfThreeGame implements Game {
     private class GameInitializer {
         Board board;
         Mark startingMark;
+        Players players;
 
         void init() {
+            //TODO: get names from players
+            Player player1 = new Player("Ab", Mark.X);
+            Player player2 = new Player("Cd", Mark.O);
+            this.players = new Players();
+            this.players.addPlayer(player1);
+            this.players.addPlayer(player2);
             System.out.println("Which symbol should start? X or O: ");
             startingMark = markInput.read();
             System.out.printf("You chose %s.\n\n", startingMark);

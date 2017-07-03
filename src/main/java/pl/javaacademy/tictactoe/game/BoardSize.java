@@ -23,6 +23,7 @@ class BoardSize {
     BoardSize(Integer width, Integer height) {
         this.width = width;
         this.height = height;
+        this.winningSequence = 3;
     }
 
     public BoardSize(Integer width, Integer height, Integer winningSequence) {
@@ -42,7 +43,7 @@ class BoardSize {
 
     List<Integer> getHorizontalIndices(int startingPoint) {
         int firstIndex = (startingPoint - 1) * width + 1;
-        int lastIndex = startingPoint * width + 1;
+        int lastIndex = startingPoint * width + 1 - winningSequence;
 
         Stream<Integer> stream = IntStream.range(firstIndex, lastIndex).boxed();
         List<Integer> result = new ArrayList<>();
@@ -53,7 +54,9 @@ class BoardSize {
 
     List<Integer> getVerticalIndices(int startingPoint) {
         List<Integer> result = new ArrayList<>();
-        while (startingPoint <= width * height) {
+        int lastIndex = winningSequence < height ? winningSequence : height;
+        while (startingPoint <= width * lastIndex) {
+            System.out.println(startingPoint);
             result.add(startingPoint);
             startingPoint += width;
         }

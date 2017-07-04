@@ -21,6 +21,11 @@ public class WinnerCheckerTest {
         board = new Board(new BoardSize(4, 6));
     }
 
+    @BeforeGroups(groups = "4x4 board")
+    public void before4x4Group() {
+        board = new Board(new BoardSize(4, 4, 3));
+    }
+
     // region 3x3 board tests
     @Test(groups = "3x3 board")
     public void shouldFindNoWinnerForEmptyBoard() {
@@ -161,7 +166,6 @@ public class WinnerCheckerTest {
 
     @Test(groups = "3x3 board")
     public void shouldReturnWinningMarkDiagonalCase() {
-        board = new Board(new BoardSize(3, 3));
         board.updateBoard(1, Mark.X);
         board.updateBoard(5, Mark.X);
         board.updateBoard(9, Mark.X);
@@ -171,4 +175,15 @@ public class WinnerCheckerTest {
         assertEquals(state, GameState.X_WIN);
     }
     // endregion
+
+    @Test(groups = "4x4 board")
+    public void shouldReturnWinningMark4x4() {
+        board.updateBoard(2, Mark.X);
+        board.updateBoard(3, Mark.X);
+        board.updateBoard(4, Mark.X);
+
+        GameState state = checker.findWinner(board);
+
+        assertEquals(state, GameState.X_WIN);
+    }
 }

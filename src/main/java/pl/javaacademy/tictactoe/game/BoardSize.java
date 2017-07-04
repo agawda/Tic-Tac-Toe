@@ -23,12 +23,17 @@ class BoardSize {
     BoardSize(Integer width, Integer height) {
         this.width = width;
         this.height = height;
+        this.winningSequence = 3;
     }
 
-    public BoardSize(Integer width, Integer height, Integer winningSequence) {
+    BoardSize(Integer width, Integer height, Integer winningSequence) {
         this.width = width;
         this.height = height;
         this.winningSequence = winningSequence;
+    }
+
+    Integer getWinningSequence() {
+        return winningSequence;
     }
 
     // TODO: make sure field is > 0

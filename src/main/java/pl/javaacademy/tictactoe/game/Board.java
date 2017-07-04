@@ -16,6 +16,7 @@ class Board {
     //TODO: extract Fields class to manage fields
     private Map<Integer, Mark> fields;
     private BoardSize size;
+    private Integer winningSequence;
 
     Board(BoardSize boardSize) {
         fields = new HashMap<>();
@@ -23,6 +24,12 @@ class Board {
         fieldIds.forEach(integer -> fields.put(integer, Mark.EMPTY));
 
         this.size = boardSize;
+        //TODO: I don't like that
+        winningSequence = this.size.getWinningSequence();
+    }
+
+    Integer getWinningSequence() {
+        return winningSequence;
     }
 
     void displayBoard() {
@@ -52,7 +59,6 @@ class Board {
     }
 
     List<Mark> getMarksFromRow(int rowNumber) {
-
         List<Mark> result = new ArrayList<>();
         List<Integer> indices = size.getHorizontalIndices(rowNumber);
         indices.forEach(integer -> result.add(fields.get(integer)));
@@ -60,7 +66,6 @@ class Board {
     }
 
     List<Mark> getMarksFromColumn(int columnNumber) {
-
         List<Mark> result = new ArrayList<>();
         List<Integer> indices = size.getVerticalIndices(columnNumber);
         indices.forEach(integer -> result.add(fields.get(integer)));

@@ -46,6 +46,13 @@ class Board {
         return (isFieldFree(selectedField) && size.isFieldOnBoard(selectedField));
     }
 
+    Integer getWidth() {
+        return size.getWidth();
+    }
+
+    Integer getHeight() {
+        return size.getHeight();
+    }
     //TODO: it's possible to use stream here
     boolean boardIsFilled() {
 
@@ -57,14 +64,14 @@ class Board {
         }
         return emptyFieldsCounter == 0;
     }
-
+    //TODO: get marks horizontal... or not
     List<Mark> getMarksFromRow(int rowNumber) {
         List<Mark> result = new ArrayList<>();
         List<Integer> indices = size.getHorizontalIndices(rowNumber);
         indices.forEach(integer -> result.add(fields.get(integer)));
         return result;
     }
-
+    //TODO: get marks vertical
     List<Mark> getMarksFromColumn(int columnNumber) {
         List<Mark> result = new ArrayList<>();
         List<Integer> indices = size.getVerticalIndices(columnNumber);
@@ -93,7 +100,7 @@ class Board {
     }
 
     private String selectMark(int id) {
-        //TODO: show field number instead of dots
+        //TODO: show field numbers instead of dots
         return fields.get(id) != Mark.EMPTY ? String.valueOf(fields.get(id)) : ".";
     }
 }

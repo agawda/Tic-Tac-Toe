@@ -36,6 +36,14 @@ class BoardSize {
         return winningSequence;
     }
 
+    public Integer getWidth() {
+        return width;
+    }
+
+    public Integer getHeight() {
+        return height;
+    }
+
     // TODO: make sure field is > 0
     boolean isFieldOnBoard(Integer selectedField) {
         return selectedField <= width * height;

@@ -18,7 +18,7 @@ public class WinnerCheckerTest {
 
     @BeforeGroups(groups = "4x6 board")
     public void before4x6Group() {
-        board = new Board(new BoardSize(4, 6));
+        board = new Board(new BoardSize(4, 6, 3));
     }
 
     @BeforeGroups(groups = "4x4 board")
@@ -185,5 +185,27 @@ public class WinnerCheckerTest {
         GameState state = checker.findWinner(board);
 
         assertEquals(state, GameState.X_WIN);
+    }
+
+    @Test(groups = "4x6 board")
+    public void shouldReturnWinningMarkFirstRow() {
+        board.updateBoard(2, Mark.X);
+        board.updateBoard(3, Mark.X);
+        board.updateBoard(4, Mark.X);
+
+        GameState state = checker.findWinner(board);
+
+        assertEquals(state, GameState.X_WIN);
+    }
+
+    @Test(groups = "4x6 board")
+    public void shouldNotReturnWinningMarkFirstRow() {
+        board.updateBoard(2, Mark.X);
+        board.updateBoard(3, Mark.O);
+        board.updateBoard(4, Mark.X);
+
+        GameState state = checker.findWinner(board);
+
+        assertEquals(state, GameState.NO_WINNER);
     }
 }

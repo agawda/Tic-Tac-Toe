@@ -5,6 +5,7 @@ import java.util.List;
 /*
  * Do more generalizations
  */
+//TODO: create interface, classes and use polymorphism to check if the game is finished
 class WinnerChecker {
     private Mark winnerMark;
     private Integer winningSequence;
@@ -22,9 +23,9 @@ class WinnerChecker {
         int tmpColumn = 1;
 
         //TODO: finish the rest of the checkers, maybe extract classes
-        markList = board.getMarksFromRow(tmpRow);
         while (winnerMark == Mark.EMPTY && tmpRow <= board.getHeight()) {
-            for(int i = 0; i <= board.getWidth() - winningSequence; i++) {
+            markList = board.getMarksFromRow(tmpRow);
+            for (int i = 0; i <= board.getWidth() - winningSequence; i++) {
                 List<Mark> actualMarks = cutMarksList(markList, i);
                 if (sameMarksInList(actualMarks)) {
                     winnerMark = actualMarks.get(0);
@@ -33,23 +34,45 @@ class WinnerChecker {
             }
             tmpRow++;
         }
-
         //TODO: write a function which checks for consecutive marks
-        while (winnerMark == Mark.EMPTY && tmpColumn < 4) {
+        int limit = board.getHeight() * board.getWidth() - winningSequence * board.getWidth() + 1;
+//        System.out.printf("Width: %d Height: %d WinningSequence: %d Limit: %d", board.getWidth(), board.getHeight(), winningSequence, limit);
+        while (tmpColumn <= board.getWidth()) {
             markList = board.getMarksFromColumn(tmpColumn);
-            boolean win = sameMarksInList(markList);
-            if (win) {
-                winnerMark = markList.get(0);
-                return selectGameState(winnerMark);
+            for (int i = 0; i <= limit; i += board.getWidth()) {
+                List<Mark> actualMarks = cutMarksList(markList, i / board.getWidth());
+                if (sameMarksInList(actualMarks)) {
+                    winnerMark = actualMarks.get(0);
+                    return selectGameState(winnerMark);
+                }
             }
             tmpColumn++;
         }
 
-        markList = board.getMarksDiagonalDescending();
-        if(sameMarksInList(markList)) winnerMark = markList.get(0);
+        //descending
+        for (int i = 0; i <= board.getWidth() - winningSequence; i++) {
+            for (int j = 0; j <= board.getHeight() - winningSequence; j++) {
+                markList = board.getMarksDiagonalDescending(j * board.getWidth() + i + 1);
+                List<Mark> actualMarks = cutMarksList(markList, 0);
+                if (sameMarksInList(actualMarks)) {
+                    winnerMark = markList.get(0);
+                    return selectGameState(winnerMark);
+                }
+            }
+        }
 
-        markList = board.getMarksDiagonalAscending();
-        if(sameMarksInList(markList)) winnerMark = markList.get(0);
+        //ascending
+        //TODO: change to vertical and horizontal limit
+        for (int i = winningSequence - 1; i < board.getWidth(); i++) {
+            for (int j = 0; j <= board.getHeight() - winningSequence; j++) {
+                markList = board.getMarksDiagonalAscending(j * board.getWidth() + i + 1);
+                List<Mark> actualMarks = cutMarksList(markList, 0);
+                if (sameMarksInList(actualMarks)) {
+                    winnerMark = markList.get(0);
+                    return selectGameState(winnerMark);
+                }
+            }
+        }
 
         return selectGameState(winnerMark);
     }
@@ -63,7 +86,7 @@ class WinnerChecker {
     }
 
     private boolean sameMarksInList(List<Mark> marks) {
-        return marks.stream().allMatch(marks.get(0)::equals);
+        return marks.stream().allMatch(m -> m == marks.get(0) && m != Mark.EMPTY && m != null);
     }
 
     private GameState selectGameState(Mark winnerMark) {

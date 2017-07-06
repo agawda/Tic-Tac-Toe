@@ -16,24 +16,14 @@ import java.util.stream.Stream;
  */
 class BoardSize {
 
+    private final WinningSequence winSeq;
     private Integer width;
     private Integer height;
-    private Integer winningSequence;
 
     BoardSize(Integer width, Integer height) {
         this.width = width;
         this.height = height;
-        this.winningSequence = 3;
-    }
-
-    BoardSize(Integer width, Integer height, Integer winningSequence) {
-        this.width = width;
-        this.height = height;
-        this.winningSequence = winningSequence;
-    }
-
-    Integer getWinningSequence() {
-        return winningSequence;
+        this.winSeq = new WinningSequence(Math.min(width, height));
     }
 
     public Integer getWidth() {
@@ -75,12 +65,14 @@ class BoardSize {
 
     List<Integer> getDiagonalIndicesDescending(int startingPoint) {
         int formula = width + 1;
-        return IntStream.iterate(startingPoint, i -> i + formula).limit(3).boxed().collect(Collectors.toList());
+        int limit = height > width ? width : height;
+        return IntStream.iterate(startingPoint, i -> i + formula).limit(limit).boxed().collect(Collectors.toList());
     }
 
     List<Integer> getDiagonalIndicesAscending(int startingPoint) {
         int formula = width - 1;
-        return IntStream.iterate(startingPoint, i -> i + formula).limit(3).boxed().collect(Collectors.toList());
+        int limit = height > width ? width : height;
+        return IntStream.iterate(startingPoint, i -> i + formula).limit(limit).boxed().collect(Collectors.toList());
     }
 
     @Override

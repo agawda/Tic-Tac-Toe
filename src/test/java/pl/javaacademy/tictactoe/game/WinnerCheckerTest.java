@@ -2,6 +2,7 @@ package pl.javaacademy.tictactoe.game;
 
 import org.testng.annotations.BeforeGroups;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
@@ -18,12 +19,39 @@ public class WinnerCheckerTest {
 
     @BeforeGroups(groups = "4x6 board")
     public void before4x6Group() {
-        board = new Board(new BoardSize(4, 6, 3));
+        board = new Board(new BoardSize(4, 6));
     }
 
     @BeforeGroups(groups = "4x4 board")
     public void before4x4Group() {
-        board = new Board(new BoardSize(4, 4, 3));
+        board = new Board(new BoardSize(4, 4));
+    }
+
+    @BeforeGroups(groups = "5x5 board")
+    public void before5x5Group() {
+        board = new Board(new BoardSize(5, 5));
+    }
+
+    @DataProvider(name = "5x5 ascending")
+    public Object[][] ascending5x5Data() {
+        return new Object[][] {
+                {11, 7, 3},
+                {17, 13, 9},
+                {23, 19, 15},
+                {16, 12, 8}
+        };
+    }
+
+    @DataProvider(name = "5x5 descending")
+    public Object[][] descending5x5Data() {
+        return new Object[][] {
+                {1, 7, 13},
+                {12, 18, 24},
+                {13, 19, 25},
+                {7, 13, 19},
+                {11, 17, 23},
+                {8, 14, 20}
+        };
     }
 
     // region 3x3 board tests
@@ -189,6 +217,7 @@ public class WinnerCheckerTest {
 
     @Test(groups = "4x6 board")
     public void shouldReturnWinningMarkFirstRow() {
+        board.updateBoard(1, Mark.X);
         board.updateBoard(2, Mark.X);
         board.updateBoard(3, Mark.X);
         board.updateBoard(4, Mark.X);
@@ -207,5 +236,87 @@ public class WinnerCheckerTest {
         GameState state = checker.findWinner(board);
 
         assertEquals(state, GameState.NO_WINNER);
+    }
+
+    @Test(groups = "4x6 board")
+    public void shouldReturnWinningMarkSecondColumn() {
+        board.updateBoard(6, Mark.X);
+        board.updateBoard(10, Mark.X);
+        board.updateBoard(14, Mark.X);
+        board.updateBoard(18, Mark.X);
+
+        GameState state = checker.findWinner(board);
+
+        assertEquals(state, GameState.X_WIN);
+    }
+
+    @Test(groups = "4x6 board")
+    public void shouldReturnWinningMarkSecondColumnFirstRow() {
+        board.updateBoard(2, Mark.X);
+        board.updateBoard(6, Mark.X);
+        board.updateBoard(10, Mark.X);
+        board.updateBoard(14, Mark.X);
+
+        GameState state = checker.findWinner(board);
+
+        assertEquals(state, GameState.X_WIN);
+    }
+
+    @Test(groups = "4x6 board")
+    public void shouldReturnDiagonalAscendingWinFourthRow() {
+        board.updateBoard(13, Mark.X);
+        board.updateBoard(10, Mark.X);
+        board.updateBoard(7, Mark.X);
+        board.updateBoard(4, Mark.X);
+
+        GameState gameState = checker.findWinner(board);
+
+        assertEquals(gameState, GameState.X_WIN);
+    }
+
+    @Test(groups = "4x6 board")
+    public void shouldReturnDiagonalDescendingWinFirstRow() {
+        board.updateBoard(1, Mark.X);
+        board.updateBoard(6, Mark.X);
+        board.updateBoard(11, Mark.X);
+        board.updateBoard(16, Mark.X);
+
+        GameState gameState = checker.findWinner(board);
+
+        assertEquals(gameState, GameState.X_WIN);
+    }
+
+    @Test(groups = "4x6 board")
+    public void shouldReturnDiagonalDescendingWin() {
+        board.updateBoard(5, Mark.X);
+        board.updateBoard(10, Mark.X);
+        board.updateBoard(15, Mark.X);
+        board.updateBoard(20, Mark.X);
+
+        GameState gameState = checker.findWinner(board);
+
+        assertEquals(gameState, GameState.X_WIN);
+    }
+
+    @Test(groups = "5x5 board", dataProvider = "5x5 descending")
+    public void shouldReturnDiagonal5x5Descending(int first, int second, int third) {
+        board.updateBoard(first, Mark.X);
+        board.updateBoard(second, Mark.X);
+        board.updateBoard(third, Mark.X);
+
+        GameState gameState = checker.findWinner(board);
+
+        assertEquals(gameState, GameState.X_WIN);
+    }
+
+    @Test(groups = "5x5 board", dataProvider = "5x5 ascending")
+    public void shouldReturnDiagonal5x5AscendingWin(int first, int second, int third) {
+        board.updateBoard(first, Mark.X);
+        board.updateBoard(second, Mark.X);
+        board.updateBoard(third, Mark.X);
+
+        GameState gameState = checker.findWinner(board);
+
+        assertEquals(gameState, GameState.X_WIN);
     }
 }

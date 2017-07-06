@@ -1,10 +1,7 @@
 package pl.javaacademy.tictactoe.game;
 
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -20,22 +17,27 @@ class Board {
 
     Board(BoardSize boardSize) {
         fields = new HashMap<>();
-        Stream<Integer> fieldIds = IntStream.range(1, 10).boxed();
-        fieldIds.forEach(integer -> fields.put(integer, Mark.EMPTY));
-
         this.size = boardSize;
+        //TODO: magic numbers
+        Stream<Integer> fieldIds = IntStream.rangeClosed(1, size.getHeight() * size.getWidth()).boxed();
+        fieldIds.forEach(integer -> fields.put(integer, Mark.EMPTY));
         //TODO: I don't like that
-        winningSequence = this.size.getWinningSequence();
+        winningSequence = new WinningSequence(Math.min(boardSize.getHeight(),boardSize.getWidth())).intValue();
     }
 
     Integer getWinningSequence() {
         return winningSequence;
     }
 
+    //TODO: lol
     void displayBoard() {
-        System.out.println(selectMark(1) + selectMark(2) + selectMark(3));
-        System.out.println(selectMark(4) + selectMark(5) + selectMark(6));
-        System.out.println(selectMark(7) + selectMark(8) + selectMark(9));
+        fields.forEach((k, v) -> {
+            System.out.printf("|%-3s", selectMark(k));
+            if(k%size.getWidth() == 0) {
+                System.out.print("|");
+                System.out.println();
+            }
+        });
     }
 
     void updateBoard(Integer selectedField, Mark playerMark) {
@@ -79,18 +81,17 @@ class Board {
         return result;
     }
 
-    List<Mark> getMarksDiagonalDescending() {
-        //TODO: remove magic number
+    List<Mark> getMarksDiagonalDescending(int startingPoint) {
         List<Mark> result = new ArrayList<>();
-        List<Integer> indices = size.getDiagonalIndicesDescending(1);
+        List<Integer> indices = size.getDiagonalIndicesDescending(startingPoint);
         indices.forEach(i -> result.add(fields.get(i)));
         return result;
     }
 
-    List<Mark> getMarksDiagonalAscending() {
-        //TODO: remove magic number
+    List<Mark> getMarksDiagonalAscending(int startingPoint) {
         List<Mark> result = new ArrayList<>();
-        List<Integer> indices = size.getDiagonalIndicesAscending(3);
+        List<Integer> indices = size.getDiagonalIndicesAscending(startingPoint);
+        //TODO: review that later
         indices.forEach(i -> result.add(fields.get(i)));
         return result;
     }
@@ -101,6 +102,6 @@ class Board {
 
     private String selectMark(int id) {
         //TODO: show field numbers instead of dots
-        return fields.get(id) != Mark.EMPTY ? String.valueOf(fields.get(id)) : ".";
+        return fields.get(id) != Mark.EMPTY ? String.valueOf(fields.get(id)) : String.valueOf(id);
     }
 }

@@ -33,9 +33,10 @@ public class BestOfThreeGame implements Game {
         Play play;
         for (int i = 0; i < 3; i++) {
             //TODO: yes, this is ugly as hell :<
-            play = new Play(new Board(new BoardSize(3, 3)), gameInitializer.startingMark);
+            play = new Play(new Board(new BoardSize(4, 4)), gameInitializer.startingMark);
             Mark winner = play.runTheGame();
             assignScores(winner);
+            System.out.println("New game.");
         }
         System.out.printf("%s won.", players.getPlayerWithBetterScore());
     }
@@ -61,9 +62,9 @@ public class BestOfThreeGame implements Game {
             startingMark = markInput.read();
             System.out.printf("You chose %s.\n\n", startingMark);
 //            System.out.println("Board width: ");
-            Integer width = 3; //integerInput.read();
+            Integer width = 4; //integerInput.read();
 //            System.out.println("Board height: ");
-            Integer height = 3; //integerInput.read();
+            Integer height = 4; //integerInput.read();
             //TODO: ask for the winning condition
             BoardSize boardSize = new BoardSize(width, height);
             System.out.println(boardSize.toString());

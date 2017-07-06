@@ -11,7 +11,7 @@
 * Create methods in Mark enum :octocat:
 * Game interface and class :octocat:
 * Output class (when the server is done I think)
-* Generalize winning algorithm
+* Generalize winning algorithm :octocat:
 * Best of three actually :octocat:
 * Player names (so Player class) :octocat:
 * Players class (to manage collection) :octocat:
@@ -19,7 +19,8 @@
 * Player scores :octocat:
 * Draw
 * Switch starting marks after every game
-* Make Game more testable
+* Generalize board drawing
+* Make Player an inner class of Players
 * ... more coming soon
 
 ## Requirements list:

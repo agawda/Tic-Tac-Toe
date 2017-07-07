@@ -12,8 +12,9 @@ import java.util.stream.Stream;
  *
  * Difference between diagonal cells:
  * Top left - bottom right - width + 1 - descending
- * Bottom left - top rigth - width - 1 - ascending
+ * Bottom left - top right - width - 1 - ascending
  */
+//TODO: fix winSeq
 class BoardSize {
 
     private final WinningSequence winSeq;
@@ -65,13 +66,13 @@ class BoardSize {
 
     List<Integer> getDiagonalIndicesDescending(int startingPoint) {
         int formula = width + 1;
-        int limit = height > width ? width : height;
+        int limit = Math.min(width, height);
         return IntStream.iterate(startingPoint, i -> i + formula).limit(limit).boxed().collect(Collectors.toList());
     }
 
     List<Integer> getDiagonalIndicesAscending(int startingPoint) {
         int formula = width - 1;
-        int limit = height > width ? width : height;
+        int limit = Math.min(width, height);
         return IntStream.iterate(startingPoint, i -> i + formula).limit(limit).boxed().collect(Collectors.toList());
     }
 

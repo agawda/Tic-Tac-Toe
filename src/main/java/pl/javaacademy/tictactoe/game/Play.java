@@ -16,13 +16,13 @@ class Play {
         this.board = board;
         this.currentMark = startingMark;
         this.playerSelector = new PlayerSelector(startingMark);
-        this.winnerChecker = new WinnerChecker();
+        this.winnerChecker = new WinnerChecker(new WinningSequence(3));
         this.integerInput = new IntegerInput();
     }
 
     Mark runTheGame() {
         int moveCounter = 1;
-        WinnerChecker winnerChecker = new WinnerChecker();
+        WinnerChecker winnerChecker = new WinnerChecker(new WinningSequence(3));
         //TODO: refactor this
         while (winnerChecker.findWinner(board).equals(GameState.NO_WINNER) && moveCounter < 10) {
             Mark currentPlayerMark = playerSelector.getPlayerForMove(moveCounter);

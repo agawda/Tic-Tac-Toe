@@ -18,11 +18,12 @@
 * Fields class (to manage collection)
 * Player scores :octocat:
 * Draw
-* Switch starting marks after every game
+* Switch starting marks after every game :octocat:
 * Generalize board drawing :octocat:
 * Make Player an inner class of Players
 * Input class just takes input from players
 * Add loggers
+* Assign clients in Server to players
 * ... more coming soon
 
 ## Requirements list:

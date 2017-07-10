@@ -1,19 +1,18 @@
 package pl.javaacademy.tictactoe.server;
 
+import pl.javaacademy.tictactoe.io.IntegerInput;
+import pl.javaacademy.tictactoe.io.UserCommunication;
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.net.UnknownHostException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Client {
-    private static List<String> messageQueue;
-
+    public static UserCommunication<Integer> integerInput;
     public static void main(String[] args) {
-        messageQueue = new ArrayList<>();
+        integerInput = new IntegerInput();
         try (
                 Socket requestSocket = new Socket("localhost", 4444);
                 ObjectOutputStream out = new ObjectOutputStream(requestSocket.getOutputStream());
@@ -26,6 +25,25 @@ public class Client {
             out.flush();
             out.writeObject(name);
             out.flush();
+
+            for(int i = 0; i < 3; i++) {
+                String line = null;
+                while (true) {
+                    line = (String) in.readObject();
+                    if(line.equalsIgnoreCase("bye")) break;
+                    System.out.println(line);
+                    line = (String) in.readObject();
+                    if(line.equalsIgnoreCase("bye")) break;
+                    System.out.println(line);
+                    Integer field = integerInput.read();
+                    out.flush();
+                    out.writeObject(field);
+                    out.flush();
+                    line = (String) in.readObject();
+                    if(line.equalsIgnoreCase("bye")) break;
+
+                }
+            }
 //            String message;
 //            Scanner scanner = new Scanner(System.in);
 //            while(true) {
@@ -42,7 +60,4 @@ public class Client {
         }
     }
 
-    public static void getMessage(String message) {
-        messageQueue.add(message);
-    }
 }

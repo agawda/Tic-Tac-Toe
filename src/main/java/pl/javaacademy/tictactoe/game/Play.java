@@ -10,26 +10,28 @@ class Play {
     private Mark currentMark;
     private PlayerSelector playerSelector;
     private WinnerChecker winnerChecker;
+    private WinningSequence winningSequence;
     //TODO: get this stuff from client app
     private UserCommunication<Integer> integerInput;
 
-    Play(Board board, Mark startingMark) {
+    Play(Board board, Mark startingMark, WinningSequence winningSequence) {
         this.board = board;
         this.currentMark = startingMark;
+        this.winningSequence = winningSequence;
         this.playerSelector = new PlayerSelector(startingMark);
-        this.winnerChecker = new WinnerChecker(new WinningSequence(3));
+        this.winnerChecker = new WinnerChecker(winningSequence);
         this.integerInput = new IntegerInput();
     }
 
     Mark runTheGame() {
+        board.displayBoard();
         int moveCounter = 1;
-        WinnerChecker winnerChecker = new WinnerChecker(new WinningSequence(3));
+        WinnerChecker winnerChecker = new WinnerChecker(winningSequence);
         //TODO: refactor this
-        while (winnerChecker.findWinner(board).equals(GameState.NO_WINNER) && moveCounter < 10) {
+        while (winnerChecker.findWinner(board).equals(GameState.NO_WINNER) && moveCounter < board.getHeight() * board.getWidth()) {
             Mark currentPlayerMark = playerSelector.getPlayerForMove(moveCounter);
-            System.out.println(String.format("Player %s, please select field(1-9)", String.valueOf(currentPlayerMark)));
+            System.out.println(String.format("Player %s, please select field(1-%d)", String.valueOf(currentPlayerMark), board.getHeight() * board.getWidth()));
             Integer selectedField = integerInput.read();
-//            Integer selectedField = GameServer.getFieldNumber();
             while (!board.isFieldSuitable(selectedField)) {
                 System.out.println("Field is occupied or not on board, please select another one");
                 selectedField = integerInput.read();

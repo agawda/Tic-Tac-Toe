@@ -32,6 +32,14 @@ public class BoardTest {
         };
     }
 
+    @DataProvider(name = "takenFields")
+    public Object[][] fieldsDataProvider() {
+        return new Object[][] {
+                {1, 1, false},
+                {1, 2, true}
+        };
+    }
+
     @Test(dataProvider = "boardCorrectDataProvider")
     public void shouldReturnTrueForSuitableFields(int width, int height, int field) {
 
@@ -172,5 +180,15 @@ public class BoardTest {
         board.updateBoard(8, Mark.O);
         board.updateBoard(9, Mark.O);
         assertTrue(board.boardIsFilled());
+    }
+
+    @Test(dataProvider = "takenFields")
+    public void takenFieldTest(Integer field, Integer check, boolean expected) {
+        Board board = new Board(new BoardSize(3, 3));
+        board.updateBoard(field, Mark.X);
+
+        boolean actual = board.isFieldSuitable(check);
+
+        assertEquals(actual ,expected);
     }
 }

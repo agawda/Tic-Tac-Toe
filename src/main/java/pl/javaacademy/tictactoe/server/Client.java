@@ -27,7 +27,7 @@ public class Client {
             out.flush();
 
             for(int i = 0; i < 3; i++) {
-                String line = null;
+                String line;
                 while (true) {
                     line = (String) in.readObject();
                     if(line.equalsIgnoreCase("bye")) break;
@@ -44,9 +44,7 @@ public class Client {
 
                 }
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }

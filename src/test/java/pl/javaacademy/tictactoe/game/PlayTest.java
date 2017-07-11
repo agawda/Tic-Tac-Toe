@@ -1,9 +1,5 @@
 package pl.javaacademy.tictactoe.game;
 
-import org.testng.annotations.Test;
-
-import static org.testng.Assert.assertEquals;
-
 public class PlayTest {
 //    @Test
 //    public void testWinningMarkReturnedProperly() {

@@ -1,7 +1,6 @@
 package pl.javaacademy.tictactoe.game;
 
 import org.testng.annotations.BeforeGroups;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 

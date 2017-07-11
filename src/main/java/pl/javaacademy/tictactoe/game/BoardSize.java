@@ -17,14 +17,13 @@ import java.util.stream.Stream;
 //TODO: fix winSeq
 class BoardSize {
 
-    private final WinningSequence winSeq;
     private Integer width;
     private Integer height;
 
     BoardSize(Integer width, Integer height) {
         this.width = width;
         this.height = height;
-        this.winSeq = new WinningSequence(Math.min(width, height));
+        WinningSequence winSeq = new WinningSequence(Math.min(width, height));
     }
 
     public Integer getWidth() {

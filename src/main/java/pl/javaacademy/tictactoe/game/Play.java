@@ -1,25 +1,20 @@
 package pl.javaacademy.tictactoe.game;
 
 import pl.javaacademy.tictactoe.io.IntegerInput;
-import pl.javaacademy.tictactoe.io.MarkInput;
 import pl.javaacademy.tictactoe.io.UserCommunication;
-import pl.javaacademy.tictactoe.server.GameServer;
 
 class Play {
     private Board board;
-    private Mark currentMark;
     private PlayerSelector playerSelector;
-    private WinnerChecker winnerChecker;
     private WinningSequence winningSequence;
     //TODO: get this stuff from client app
     private UserCommunication<Integer> integerInput;
 
     Play(Board board, Mark startingMark, WinningSequence winningSequence) {
         this.board = board;
-        this.currentMark = startingMark;
+        Mark currentMark = startingMark;
         this.winningSequence = winningSequence;
         this.playerSelector = new PlayerSelector(startingMark);
-        this.winnerChecker = new WinnerChecker(winningSequence);
         this.integerInput = new IntegerInput();
     }
 

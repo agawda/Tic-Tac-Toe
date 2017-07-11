@@ -59,8 +59,8 @@
         <repository>
             <uniqueVersion>false</uniqueVersion>
             <id>dev1</id>
-            <name>Devas Repository</name>
-            <url>file:///home/piotrsekula/Workspace/Deploy/</url>
+            <name>Repository</name>
+            <url>file:///home/anna/deploy/testrep</url>
             <layout>default</layout>
         </repository>
     </distributionManagement>

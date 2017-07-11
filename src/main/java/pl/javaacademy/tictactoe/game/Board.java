@@ -13,7 +13,6 @@ class Board {
     //TODO: extract Fields class to manage fields
     private Map<Integer, Mark> fields;
     private BoardSize size;
-    private Integer winningSequence;
 
     Board(BoardSize boardSize) {
         fields = new HashMap<>();
@@ -21,12 +20,6 @@ class Board {
         //TODO: magic numbers
         Stream<Integer> fieldIds = IntStream.rangeClosed(1, size.getHeight() * size.getWidth()).boxed();
         fieldIds.forEach(integer -> fields.put(integer, Mark.EMPTY));
-        //TODO: I don't like that
-        winningSequence = new WinningSequence(Math.min(boardSize.getHeight(),boardSize.getWidth())).intValue();
-    }
-
-    Integer getWinningSequence() {
-        return winningSequence;
     }
 
     void displayBoard() {

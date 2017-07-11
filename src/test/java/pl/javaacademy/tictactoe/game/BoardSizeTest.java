@@ -7,7 +7,7 @@ import java.util.List;
 
 import static org.testng.Assert.*;
 
-public class BoardSizeTest {
+class BoardSizeTest {
 
     @DataProvider(name = "boardCorrectDataProvider")
     public static Object[][] correctProvider() {

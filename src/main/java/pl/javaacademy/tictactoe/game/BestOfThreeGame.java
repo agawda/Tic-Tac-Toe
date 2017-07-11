@@ -9,12 +9,11 @@ import java.util.Scanner;
 public class BestOfThreeGame implements Game {
     private GameInitializer gameInitializer;
     private Players players;
-    private PlayerSelector playerSelector;
     private UserCommunication<Mark> markInput;
     private UserCommunication<Integer> integerInput;
     private Mark currentMark;
 
-    public BestOfThreeGame() {
+    BestOfThreeGame() {
         this.markInput = new MarkInput();
         this.integerInput = new IntegerInput();
         this.gameInitializer = new GameInitializer();
@@ -27,9 +26,9 @@ public class BestOfThreeGame implements Game {
         gameInitializer.init();
         this.players = gameInitializer.players;
         this.currentMark = gameInitializer.startingMark;
-        this.playerSelector = new PlayerSelector(currentMark);
 
     }
+
     @Override
     public void play() {
         Play play;
@@ -39,19 +38,18 @@ public class BestOfThreeGame implements Game {
             Mark winner = play.runTheGame();
             assignScores(winner);
             currentMark = Mark.getOppositeMark(currentMark);
-            this.playerSelector = new PlayerSelector(currentMark);
             System.out.println("====================================================");
             System.out.println("New game.");
             System.out.println("====================================================");
         }
         //TODO: name?
         Mark winner = players.getPlayerWithBetterScore();
-        if(winner.equals(Mark.EMPTY)) System.out.println("No one won.");
+        if (winner == Mark.EMPTY) System.out.println("No one won.");
         else System.out.printf("%s(%s) won.", winner, players.getPlayerName(winner));
     }
 
     private void assignScores(Mark winningMark) {
-        if(winningMark.equals(Mark.EMPTY)) players.addBothPlayersScoreOnePoint();
+        if (winningMark == Mark.EMPTY) players.addBothPlayersScoreOnePoint();
         else players.addPlayerScoreThreePoints(winningMark);
     }
 

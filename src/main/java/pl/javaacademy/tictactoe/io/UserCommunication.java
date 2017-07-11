@@ -6,7 +6,6 @@ public abstract class UserCommunication<T> {
 
     private Scanner scanner = new Scanner(System.in);
 
-    // TODO: add some restrictions (eg. board size < 100)
     public T read() {
 
         T value = null;
@@ -16,7 +15,6 @@ public abstract class UserCommunication<T> {
                 value = castUserInput(userInput);
 
             } catch (ClassCastException | IllegalArgumentException e) {
-//                throw new IllegalArgumentException();
                 System.err.println("You put wrong value, please try again");
             }
         }

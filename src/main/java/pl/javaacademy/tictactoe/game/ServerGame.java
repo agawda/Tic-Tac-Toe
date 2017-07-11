@@ -1,9 +1,9 @@
 package pl.javaacademy.tictactoe.game;
 
 public class ServerGame implements Game {
-    Players players;
-    Board board;
-    WinnerChecker winnerChecker;
+    private Players players;
+    private Board board;
+    private WinnerChecker winnerChecker;
 
     @Override
     public void initialize() {

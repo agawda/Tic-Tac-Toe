@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 
 import static org.testng.Assert.*;
 
-public class BoardTest {
+class BoardTest {
 
     private Board board;
 

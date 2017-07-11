@@ -9,8 +9,8 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class Client {
-    public static UserCommunication<Integer> integerInput;
+class Client {
+    private static UserCommunication<Integer> integerInput;
     public void run() {
         integerInput = new IntegerInput();
         try (

@@ -21,7 +21,7 @@ class WinnerChecker {
         int tmpRow = 1;
         int tmpColumn = 1;
 
-        //TODO: finish the rest of the checkers, maybe extract classes
+        //TODO: extract classes
         while (winnerMark == Mark.EMPTY && tmpRow <= board.getHeight()) {
             markList = board.getMarksFromRow(tmpRow);
             for (int i = 0; i <= board.getWidth() - winningSequence.intValue(); i++) {
@@ -33,9 +33,7 @@ class WinnerChecker {
             }
             tmpRow++;
         }
-        //TODO: write a function which checks for consecutive marks
         int limit = board.getHeight() * board.getWidth() - winningSequence.intValue() * board.getWidth() + 1;
-//        System.out.printf("Width: %d Height: %d WinningSequence: %d Limit: %d", board.getWidth(), board.getHeight(), winningSequence, limit);
         while (tmpColumn <= board.getWidth()) {
             markList = board.getMarksFromColumn(tmpColumn);
             for (int i = 0; i <= limit; i += board.getWidth()) {

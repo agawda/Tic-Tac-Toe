@@ -82,7 +82,7 @@ public class Server {
 
     private boolean oneRound(ServerGame game) {
         GameState gameResult = game.checkWin();
-        if(!gameResult.equals(GameState.NO_WINNER)) {
+        if(gameResult != GameState.NO_WINNER) {
             System.out.println(gameResult);
             try {
                 out.flush();

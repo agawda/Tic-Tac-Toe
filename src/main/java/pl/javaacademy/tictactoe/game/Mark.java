@@ -6,7 +6,7 @@ public enum Mark {
     X, O, EMPTY;
 
     public static Mark getOppositeMark(Mark mark) {
-        if(mark.equals(X)) return O;
+        if(mark == X) return O;
         return X;
     }
 }

@@ -2,12 +2,10 @@ package pl.javaacademy.tictactoe.io;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import pl.javaacademy.tictactoe.io.IntegerInput;
-import pl.javaacademy.tictactoe.io.UserCommunication;
 
 import static org.testng.Assert.assertEquals;
 
-public class IntegerInputTest {
+class IntegerInputTest {
     @DataProvider(name = "isStringCastProperly")
     public Object[][] testData() {
         return new Object[][] {

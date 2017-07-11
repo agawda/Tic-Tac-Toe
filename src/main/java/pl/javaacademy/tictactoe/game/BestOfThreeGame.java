@@ -4,6 +4,8 @@ import pl.javaacademy.tictactoe.io.IntegerInput;
 import pl.javaacademy.tictactoe.io.MarkInput;
 import pl.javaacademy.tictactoe.io.UserCommunication;
 
+import java.util.Scanner;
+
 public class BestOfThreeGame implements Game {
     private GameInitializer gameInitializer;
     private Players players;
@@ -45,7 +47,7 @@ public class BestOfThreeGame implements Game {
         //TODO: name?
         Mark winner = players.getPlayerWithBetterScore();
         if(winner.equals(Mark.EMPTY)) System.out.println("No one won.");
-        else System.out.printf("%s won.", winner);
+        else System.out.printf("%s(%s) won.", winner, players.getPlayerName(winner));
     }
 
     private void assignScores(Mark winningMark) {
@@ -62,8 +64,17 @@ public class BestOfThreeGame implements Game {
 
         void init() {
             //TODO: get names from players
-            Player player1 = new Player("Ab", Mark.X);
-            Player player2 = new Player("Cd", Mark.O);
+            System.out.println("Player 1 name: ");
+            Scanner scanner = new Scanner(System.in);
+            String name = scanner.nextLine();
+            System.out.println("Player 1 symbol (X or O): ");
+            Mark pMark = markInput.read();
+            Player player1 = new Player(name, pMark);
+            System.out.println("Player 2 name: ");
+            name = scanner.nextLine();
+            pMark = Mark.getOppositeMark(pMark);
+            System.out.printf("Player 2 is %s.\n", pMark);
+            Player player2 = new Player(name, pMark);
             this.players = new Players();
             this.players.addPlayer(player1);
             this.players.addPlayer(player2);

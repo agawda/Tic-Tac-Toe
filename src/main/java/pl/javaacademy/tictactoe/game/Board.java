@@ -29,7 +29,6 @@ class Board {
         return winningSequence;
     }
 
-    //TODO: lol
     void displayBoard() {
         fields.forEach((k, v) -> {
             System.out.printf("|%-3s", selectMark(k));
@@ -103,5 +102,18 @@ class Board {
     private String selectMark(int id) {
         //TODO: show field numbers instead of dots
         return fields.get(id) != Mark.EMPTY ? String.valueOf(fields.get(id)) : String.valueOf(id);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        fields.forEach((k, v) -> {
+            stringBuilder.append(String.format("|%-3s", selectMark(k)));
+            if(k%size.getWidth() == 0) {
+                stringBuilder.append("|");
+                stringBuilder.append("\n");
+            }
+        });
+        return stringBuilder.toString();
     }
 }

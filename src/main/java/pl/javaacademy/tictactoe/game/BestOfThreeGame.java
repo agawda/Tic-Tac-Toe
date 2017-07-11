@@ -43,7 +43,9 @@ public class BestOfThreeGame implements Game {
             System.out.println("====================================================");
         }
         //TODO: name?
-        System.out.printf("%s won.", players.getPlayerWithBetterScore());
+        Mark winner = players.getPlayerWithBetterScore();
+        if(winner.equals(Mark.EMPTY)) System.out.println("No one won.");
+        else System.out.printf("%s won.", winner);
     }
 
     private void assignScores(Mark winningMark) {

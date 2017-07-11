@@ -1,6 +1,8 @@
 ## To run:
 1. mvn clean install
 2. java -jar PROJECT_DIRECTORY/target/TicTacToe-1.0.jar
+3. To run as a server add server parameter to the above, to run as a client, add client parameter
+4. Run server first
 
 ## TODO:
 :octocat: - done

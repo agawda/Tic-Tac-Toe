@@ -4,6 +4,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 public class PlayerSelectorTest {
 
@@ -49,5 +50,10 @@ public class PlayerSelectorTest {
 
         // Then
         assertEquals(player, Mark.X);
+    }
+
+    @Test
+    public void failTest() {
+        assertTrue(false);
     }
 }

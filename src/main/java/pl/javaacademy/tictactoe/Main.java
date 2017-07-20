@@ -15,10 +15,11 @@ public class Main {
         } else if(args[0].equals("server")) {
             Server server = new Server();
             server.run();
-        } else if (args[0].equals("client")) {
-            Client client = new Client();
-            client.run();
         }
+//        } else if (args[0].equals("client")) {
+//            Client client = new Client();
+//            client.run();
+//        }
 
     }
 }

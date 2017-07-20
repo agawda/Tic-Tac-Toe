@@ -9,7 +9,7 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.Scanner;
 
-class Client {
+public class Client {
     private static UserCommunication<Integer> integerInput;
     public void run() {
         integerInput = new IntegerInput();

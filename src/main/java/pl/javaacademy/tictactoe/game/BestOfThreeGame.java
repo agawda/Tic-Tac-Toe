@@ -13,7 +13,7 @@ public class BestOfThreeGame implements Game {
     private UserCommunication<Integer> integerInput;
     private Mark currentMark;
 
-    BestOfThreeGame() {
+    public BestOfThreeGame() {
         this.markInput = new MarkInput();
         this.integerInput = new IntegerInput();
         this.gameInitializer = new GameInitializer();
